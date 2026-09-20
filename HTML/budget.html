@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Budget & Expenses - FinEdge</title>
-    <link rel="stylesheet" href="budget.css">
+    <link rel="stylesheet" href="../CSS/budget.css">
 </head>
 <body>
 
@@ -13,18 +13,18 @@
         <div class="sidebar">
             <h2 class="logo">FinEdge</h2>
             <ul class="nav-links">
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Accounts & Cards</a></li>
-                <li><a href="#">Money Transfer</a></li>
-                <li><a href="#">Transactions</a></li>
-                <li><a href="#" class="active">Budget & Expenses</a></li>
-                <li><a href="#">Savings Goals</a></li>
-                <li><a href="#">Bills & Payments</a></li>
-                <li><a href="#">Profile</a></li>
-                <li><a href="#">Settings</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="accounts.html">Accounts & Cards</a></li>
+                <li><a href="transfer.html">Money Transfer</a></li>
+                <li><a href="transactions.html">Transactions</a></li>
+                <li><a href="budget.html">Budget & Expenses</a></li>
+                <li><a href="savings.html" class="active">Savings Goals</a></li>
+                <li><a href="bills.html">Bills & Payments</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="settings.html">Settings</a></li>
             </ul>
             <div class="logout-btn">
-                <a href="#">Logout</a>
+                <a href="login.html">Logout</a>
             </div>
         </div>
 
@@ -104,13 +104,42 @@
                 <!-- Right: Monthly Trend Bar Chart -->
                 <div class="card analytics-card">
                     <h4>Monthly Trend</h4>
-                    <div class="bar-chart">
-                        <div class="bar-item"><div class="bar active-bar" style="height: 40%;"></div><span>Jan</span></div>
-                        <div class="bar-item"><div class="bar active-bar" style="height: 55%;"></div><span>Feb</span></div>
-                        <div class="bar-item"><div class="bar active-bar" style="height: 80%;"></div><span>Mar</span></div>
-                        <div class="bar-item"><div class="bar active-bar" style="height: 45%;"></div><span>Apr</span></div>
-                        <div class="bar-item"><div class="bar active-bar" style="height: 90%;"></div><span>May</span></div>
-                        <div class="bar-item"><div class="bar active-bar" style="height: 62%;"></div><span>Jun</span></div>
+                    <div class="trend-chart">
+                        <div class="chart-row">
+                            <!-- Y-axis value labels -->
+                            <div class="y-axis">
+                                <span>20k</span>
+                                <span>15k</span>
+                                <span>10k</span>
+                                <span>5k</span>
+                                <span>0</span>
+                            </div>
+                            <!-- Plot area: gridlines + bars -->
+                            <div class="plot-area">
+                                <div class="grid-line" style="bottom: 100%;"></div>
+                                <div class="grid-line" style="bottom: 75%;"></div>
+                                <div class="grid-line" style="bottom: 50%;"></div>
+                                <div class="grid-line" style="bottom: 25%;"></div>
+                                <div class="grid-line" style="bottom: 0%;"></div>
+                                <div class="bars">
+                                    <div class="bar-track"><div class="bar" style="height: 40%;"></div></div>
+                                    <div class="bar-track"><div class="bar" style="height: 55%;"></div></div>
+                                    <div class="bar-track"><div class="bar" style="height: 80%;"></div></div>
+                                    <div class="bar-track"><div class="bar" style="height: 45%;"></div></div>
+                                    <div class="bar-track"><div class="bar" style="height: 90%;"></div></div>
+                                    <div class="bar-track"><div class="bar" style="height: 62%;"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- X-axis month labels -->
+                        <div class="x-axis">
+                            <span>Jan</span>
+                            <span>Feb</span>
+                            <span>Mar</span>
+                            <span>Apr</span>
+                            <span>May</span>
+                            <span>Jun</span>
+                        </div>
                     </div>
                 </div>
             </div>
