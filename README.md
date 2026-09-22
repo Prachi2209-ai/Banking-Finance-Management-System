@@ -25,8 +25,30 @@ FinEdge is a responsive front-end concept for a personal banking and finance man
 
 ```text
 Banking-Finance-Management-System/
-|-- CSS/                 # Page-specific stylesheets
-|-- HTML/                # Static page templates
+|-- CSS/
+|   |-- AccountsCards.css
+|   |-- bills.css
+|   |-- budget.css
+|   |-- dashboard.css
+|   |-- login.css
+|   |-- MoneyTransfer.css
+|   |-- profile.css
+|   |-- savings.css
+|   |-- settings.css
+|   |-- signup.css
+|   `-- Transactions.css
+|-- HTML/
+|   |-- AccountsCards.html
+|   |-- bills.html
+|   |-- budget.html
+|   |-- dashboard.html
+|   |-- login.html
+|   |-- MoneyTransfer.html
+|   |-- profile.html
+|   |-- Savings.html
+|   |-- settings.html
+|   |-- signup.html
+|   `-- Transactions.html
 `-- README.md
 ```
 
