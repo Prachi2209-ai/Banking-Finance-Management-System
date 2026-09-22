@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Profile</title>
+    <title>Profile | FinEdge</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../CSS/profile.css">
@@ -13,468 +11,223 @@
 
 <body>
 
-    <div class="sidebar">
+<div class="sidebar">
 
-        <div class="logo">
-            <span>◉</span> FinEdge
+    <div class="logo">FinEdge</div>
+
+    <div class="menu">
+        <a href="dashboard.html">Dashboard</a>
+
+        <p>Banking Services</p>
+        <a href="accounts.html">Accounts &amp; Cards</a>
+        <a href="transfer.html">Money Transfer</a>
+        <a href="transactions.html">Transactions</a>
+
+        <p>Personal Finance</p>
+        <a href="budget.html">Budget &amp; Expenses</a>
+        <a href="savings.html">Savings Goals</a>
+        <a href="bills.html">Bills &amp; Payments</a>
+
+        <p>Profile &amp; Settings</p>
+        <a href="profile.html" class="active">Profile</a>
+        <a href="settings.html">Settings</a>
+    </div>
+
+    <a href="login.html" class="logout">Logout</a>
+</div>
+
+
+<div class="main">
+
+    <div class="topbar">
+        <div class="search-box">
+            <span>⌕</span>
+            <input type="text" placeholder="Search anything...">
         </div>
 
-        <div class="menu">
+        <div class="top-right">
+            <span>🔔</span>
 
-            <a href="dashboard.html">
-                <span>⌂</span> Dashboard
-            </a>
-
-            <a href="accounts.html">
-                <span>▣</span> Accounts & Cards
-            </a>
-
-            <a href="transfer.html">
-                <span>⇄</span> Money Transfer
-            </a>
-
-            <a href="transactions.html">
-                <span>▤</span> Transactions
-            </a>
-
-            <a href="budget.html">
-                <span>▥</span> Budget & Expenses
-            </a>
-
-            <a href="savings.html">
-                <span>◈</span> Savings Goals
-            </a>
-
-            <a href="bills.html">
-                <span>▣</span> Bills & Payments
-            </a>
-
-            <a href="profile.html" class="active">
-                <span>◉</span> Profile
-            </a>
-
-            <a href="settings.html">
-                <span>⚙</span> Settings
-            </a>
-
+            <div class="user">
+                <div class="user-image">U</div>
+                <div class="user-info">
+                    <strong>User Name</strong>
+                    <small>User</small>
+                </div>
+            </div>
         </div>
-
-        <a href="login.html" class="logout">
-            <span>↪</span> Logout
-        </a>
-
     </div>
 
 
-    <div class="main">
-
-        <div class="topbar">
-
-            <div class="search-box">
-                <span>⌕</span>
-                <input type="text" placeholder="Search anything...">
-            </div>
-
-            <div class="top-right">
-
-                <span class="notification">🔔</span>
-
-                <div class="user">
-
-                    <div class="user-image">
-                        U
-                    </div>
-
-                    <div class="user-info">
-                        <strong>User Name</strong>
-                        <small>User</small>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="heading">
-
-            <h1>Profile</h1>
-            <p>Manage your personal information</p>
-
-        </div>
-
-
-        <div class="profile-box">
-
-
-            <input type="radio" name="profile-tab" id="personal-tab" checked>
-
-            <input type="radio" name="profile-tab" id="contact-tab">
-
-            <input type="radio" name="profile-tab" id="preferences-tab">
-
-
-          
-
-            <div class="profile-left">
-
-                <div class="profile-photo">
-                    U
-                </div>
-
-                <h2>User Name</h2>
-
-                <p>User</p>
-
-                <button class="edit-photo">
-                    Edit Photo
-                </button>
-
-            </div>
-
-
-           
-
-            <div class="profile-menu">
-
-                <label for="personal-tab" class="profile-option">
-                    <span>▣</span>
-                    Personal Information
-                </label>
-
-                <label for="contact-tab" class="profile-option">
-                    <span>♙</span>
-                    Contact Details
-                </label>
-
-                <label for="preferences-tab" class="profile-option">
-                    <span>⚙</span>
-                    Preferences
-                </label>
-
-            </div>
-
-
-           
-            <div class="information">
-
-
-                
-
-                <div class="profile-page personal-page">
-
-                    <h2>Personal Information</h2>
-
-                    <p class="profile-text">
-                        Manage your personal information.
-                    </p>
-
-
-                    <!-- First and Middle Name -->
-
-                    <div class="row g-3 mb-3">
-
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-
-                                <label>First Name *</label>
-
-                                <input type="text"
-                                    placeholder="Enter first name"
-                                    required>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-
-                                <label>Middle Name</label>
-
-                                <input type="text"
-                                    placeholder="Enter middle name">
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                
-
-                    <div class="row g-3 mb-3">
-
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-
-                                <label>Last Name *</label>
-
-                                <input type="text"
-                                    placeholder="Enter last name"
-                                    required>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-
-                                <label>Date of Birth</label>
-
-                                <input type="date">
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="row g-3 mb-3">
-
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-
-                                <label>Gender</label>
-
-                                <select>
-
-                                    <option>Select Gender</option>
-                                    <option>Male</option>
-                                    <option>Female</option>
-                                    <option>Other</option>
-
-                                </select>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="save-area">
-
-                        <button class="save-btn">
-                            Save Changes
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="profile-page contact-page">
-
-                    <h2>Contact Details</h2>
-
-                    <p class="profile-text">
-                        Manage your contact information.
-                    </p>
-
-
-                    <div class="row g-3 mb-3">
-
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-
-                                <label>Mobile Number</label>
-
-                                <input type="text"
-                                    placeholder="Enter mobile number">
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-
-                                <label>Email Address</label>
-
-                                <input type="email"
-                                    placeholder="Enter email address">
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="row g-3 mb-3">
-
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-
-                                <label>Address</label>
-
-                                <input type="text"
-                                    placeholder="Enter address">
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-
-                                <label>City</label>
-
-                                <input type="text"
-                                    placeholder="Enter city">
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="save-area">
-
-                        <button class="save-btn">
-                            Save Changes
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-               
-
-                <div class="profile-page preferences-page">
-
-                    <h2>Preferences</h2>
-
-                    <p class="profile-text">
-                        Manage your profile preferences.
-                    </p>
-
-
-                    <div class="row g-3 mb-3">
-
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-
-                                <label>Language</label>
-
-                                <select>
-
-                                    <option>English</option>
-                                    <option>Hindi</option>
-
-                                </select>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-
-                                <label>Theme</label>
-
-                                <select>
-
-                                    <option>Light</option>
-                                    <option>Dark</option>
-
-                                </select>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="notification-item">
-
-                        <div>
-
-                            <strong>Email Notifications</strong>
-
-                            <p>
-                                Receive updates through email.
-                            </p>
-
-                        </div>
-
-                        <label class="switch">
-
-                            <input type="checkbox" checked>
-
-                            <span class="slider"></span>
-
-                        </label>
-
-                    </div>
-
-
-                    <div class="notification-item">
-
-                        <div>
-
-                            <strong>Security Alerts</strong>
-
-                            <p>
-                                Receive important security alerts.
-                            </p>
-
-                        </div>
-
-                        <label class="switch">
-
-                            <input type="checkbox" checked>
-
-                            <span class="slider"></span>
-
-                        </label>
-
-                    </div>
-
-
-                    <div class="save-area">
-
-                        <button class="save-btn">
-                            Save Changes
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
+    <div class="heading">
+        <h1>Profile</h1>
+        <p>Manage your personal information</p>
     </div>
+
+
+    <div class="profile-box">
+
+        <input type="radio" name="tab" id="personal" checked>
+        <input type="radio" name="tab" id="contact">
+        <input type="radio" name="tab" id="preferences">
+
+
+        <div class="profile-left">
+            <div class="profile-photo">U</div>
+            <h2>User Name</h2>
+            <p>User</p>
+            <button>Edit Photo</button>
+        </div>
+
+
+        <div class="profile-menu">
+            <label for="personal">Personal Information</label>
+            <label for="contact">Contact Details</label>
+            <label for="preferences">Preferences</label>
+        </div>
+
+
+        <div class="information">
+
+            <!-- Personal Information -->
+            <div class="page personal-page">
+
+                <h2>Personal Information</h2>
+                <p>Manage your personal information.</p>
+
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <label>First Name *</label>
+                        <input type="text" placeholder="Enter first name" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Middle Name</label>
+                        <input type="text" placeholder="Enter middle name">
+                    </div>
+                </div>
+
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <label>Last Name *</label>
+                        <input type="text" placeholder="Enter last name" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Date of Birth</label>
+                        <input type="date">
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label>Gender</label>
+                    <select>
+                        <option>Select Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div class="save">
+                    <button>Save Changes</button>
+                </div>
+            </div>
+
+
+            <!-- Contact Details -->
+            <div class="page contact-page">
+
+                <h2>Contact Details</h2>
+                <p>Manage your contact information.</p>
+
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <label>Mobile Number</label>
+                        <input type="text" placeholder="Enter mobile number">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="Enter email address">
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label>Address</label>
+                        <input type="text" placeholder="Enter address">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>City</label>
+                        <input type="text" placeholder="Enter city">
+                    </div>
+                </div>
+
+                <div class="save">
+                    <button>Save Changes</button>
+                </div>
+            </div>
+
+
+            <!-- Preferences -->
+            <div class="page preferences-page">
+
+                <h2>Preferences</h2>
+                <p>Manage your profile preferences.</p>
+
+                <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                        <label>Language</label>
+                        <select>
+                            <option>English</option>
+                            <option>Hindi</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label>Theme</label>
+                        <select>
+                            <option>Light</option>
+                            <option>Dark</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="notification-item">
+                    <div>
+                        <strong>Email Notifications</strong>
+                        <p>Receive updates through email.</p>
+                    </div>
+
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span></span>
+                    </label>
+                </div>
+
+                <div class="notification-item">
+                    <div>
+                        <strong>Security Alerts</strong>
+                        <p>Receive important security alerts.</p>
+                    </div>
+
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span></span>
+                    </label>
+                </div>
+
+                <div class="save">
+                    <button>Save Changes</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
 
 </body>
-
 </html>
