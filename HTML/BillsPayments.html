@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bills & Payments | FinEdge</title>
+    <link rel="stylesheet" href="../CSS/bills.css">
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <h1>FinEdge</h1>
+
+    <a href="dashboard.html">Dashboard</a>
+
+    <h4>Banking Services</h4>
+    <a href="AccountsCards.html">Accounts & Cards</a>
+    <a href="MoneyTransfer.html">Money Transfer</a>
+    <a href="Transactions.html">Transactions</a>
+
+    <h4>Personal Finance</h4>
+    <a href="BudgetExpenses.html">Budget & Expenses</a>
+    <a href="SavingsGoals.html">Savings Goals</a>
+    <a href="BillsPayments.html" class="active">Bills & Payments</a>
+
+    <h4>Profile & Settings</h4>
+    <a href="profile.html">Profile</a>
+    <a href="settings.html">Settings</a>
+
+    <br><br>
+    <a href="login.html" class="logout">Logout</a>
+
+</div>
+
+
+<div class="main">
+
+    <div class="top-bar">
+        <input type="text" placeholder="Search anything..." class="search-bar">
+
+        <!-- User and Notification Area -->
+        <div class="user-profile">
+            <span class="bell-icon">🔔</span>
+            <span class="user-name">👤 User</span>
+        </div>
+    </div>
+
+
+    <div class="heading">
+        <div>
+            <h2>Bills & Payments</h2>
+            <p>Pay your bills and manage due dates</p>
+        </div>
+
+        <button>+ Add Bill</button>
+    </div>
+
+
+    <div class="card">
+
+        <div class="tabs">
+            <button class="selected">Upcoming Bills</button>
+            <button>Payment History</button>
+        </div>
+
+
+        <table>
+
+            <tr>
+                <th>Bill</th>
+                <th>Amount</th>
+                <th>Due Date</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+
+            <tr>
+                <td>Electricity</td>
+                <td><b>₹1,200</b></td>
+                <td>Apr 20, 2026</td>
+                <td><span class="due">Due Soon</span></td>
+                <td><button class="pay">Pay</button></td>
+            </tr>
+
+            <tr>
+                <td>Internet</td>
+                <td><b>₹800</b></td>
+                <td>Apr 22, 2026</td>
+                <td><span class="upcoming">Upcoming</span></td>
+                <td><button class="pay">Pay</button></td>
+            </tr>
+
+            <tr>
+                <td>Mobile Recharge</td>
+                <td><b>₹499</b></td>
+                <td>Apr 25, 2026</td>
+                <td><span class="upcoming">Upcoming</span></td>
+                <td><button class="pay">Pay</button></td>
+            </tr>
+
+            <tr>
+                <td>Rent</td>
+                <td><b>₹12,000</b></td>
+                <td>May 1, 2026</td>
+                <td><span class="upcoming">Upcoming</span></td>
+                <td><button class="pay">Pay</button></td>
+            </tr>
+
+            <tr>
+                <td>Water</td>
+                <td><b>₹600</b></td>
+                <td>May 5, 2026</td>
+                <td><span class="upcoming">Upcoming</span></td>
+                <td><button class="pay">Pay</button></td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>
