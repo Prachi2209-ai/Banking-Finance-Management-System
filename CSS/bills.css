@@ -1,193 +1,333 @@
-
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-    font-family: Arial, sans-serif; 
-} 
- 
-body { 
-    background-color: lightgrey; 
-    color: black; 
-} 
- 
-/* Layout Outer */ 
-.main-container { 
-    display: flex; 
-    min-height: 100vh; 
-} 
- 
-/* Sidebar */ 
-.sidebar { 
-    width: 220px; 
-    background-color: darkblue; 
-    color: white; 
-    padding: 20px; 
-    display: flex; 
-    flex-direction: column; 
-} 
- 
-.logo { 
-    color: blue; 
-    font-size: 22px; 
-    margin-bottom: 30px; 
-} 
- 
-.nav-links { 
-    list-style: none; 
-    flex-grow: 1; 
-} 
- 
-.nav-links li { 
-    margin-bottom: 8px; 
-} 
- 
-.nav-links a { 
-    color: grey; 
-    text-decoration: none; 
-    display: block; 
-    padding: 10px; 
-    border-radius: 6px; 
-    font-size: 14px; 
-} 
- 
-.nav-links a.active,  
-.nav-links a:hover { 
-    background-color: darkblue; 
-    color: white; 
-} 
- 
-.logout-btn a { 
-    color: red; 
-    text-decoration: none; 
-    font-size: 14px; 
-} 
- 
-/* Right Content */ 
-.content-area { 
-    flex: 1; 
-    padding: 20px 30px; 
-    display: flex; 
-    flex-direction: column; 
-    gap: 20px; 
-} 
- 
-.top-bar { 
-    display: flex; 
-} 
- 
-.search-bar { 
-    padding: 8px 12px; 
-    width: 220px; 
-    border: 1px solid lightgrey; 
-    border-radius: 6px; 
-    outline: none; 
-} 
- 
-.header-section { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-} 
- 
-.header-section h2 { 
-    font-size: 20px; 
-    color: darkslateblue; 
-} 
- 
-.header-section p { 
-    font-size: 13px; 
-    color: grey; 
-} 
- 
-.add-btn { 
-    background-color: royalblue; 
-    color: white; 
-    border: none; 
-    padding: 8px 16px; 
-    border-radius: 6px; 
-    font-weight: bold; 
-    cursor: pointer; 
-} 
- 
-/* Main Card */ 
-.card { 
-    background-color: white; 
-    border-radius: 10px; 
-    padding: 20px; 
-    border: 1px solid lightgrey; 
-} 
- 
-/* Tabs */ 
-.tabs { 
-    display: flex; 
-    gap: 10px; 
-    border-bottom: 2px solid lightgrey; 
-    padding-bottom: 10px; 
-    margin-bottom: 20px; 
-} 
- 
-.tab-btn { 
-    background: none; 
-    border: none; 
-    padding: 8px 16px; 
-    font-size: 14px; 
-    font-weight: bold; 
-    color: grey; 
-    cursor: pointer; 
-    border-radius: 6px; 
-} 
- 
-.tab-btn.active { 
-    background-color: royalblue; 
-    color: white; 
-} 
- 
-/* Bills Table */ 
-.bills-table { 
-    width: 100%; 
-    border-collapse: collapse; 
-    text-align: left; 
-} 
- 
-.bills-table th { 
-    font-size: 13px; 
-    color: grey; 
-    padding-bottom: 12px; 
-    border-bottom: 1px solid lightgrey; 
-} 
- 
-.bills-table td { 
-    padding: 14px 0; 
-    font-size: 14px; 
-    border-bottom: 1px solid whitesmoke; 
-} 
- 
-/* Badges and Buttons */ 
-.status-badge { 
-    font-size: 12px; 
-    padding: 4px 8px; 
-    border-radius: 4px; 
-    font-weight: bold; 
-} 
- 
-.due-soon { 
-    background-color: lightyellow; 
-    color: darkorange; 
-} 
- 
-.upcoming { 
-    background-color: lightblue; 
-    color: deepskyblue; 
-} 
- 
-.pay-btn { 
-    background-color: royalblue; 
-    color: white; 
-    border: none; 
-    padding: 6px 14px; 
-    border-radius: 4px; 
-    cursor: pointer; 
-    font-size: 12px; 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
+body {
+    background-color: #f4f7fc;
+    color: #1a2238;
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #0b2545;
+    color: white;
+    padding: 25px 18px;
+}
+
+.sidebar h1 {
+    font-size: 30px;
+    margin-bottom: 25px;
+    color: white;
+}
+
+.sidebar h4 {
+    font-size: 13px;
+    color: #9fb5d1;
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+.sidebar a {
+    display: block;
+    color: #dce7f5;
+    text-decoration: none;
+    padding: 9px 12px;
+    border-radius: 8px;
+    margin-bottom: 3px;
+    font-size: 14px;
+}
+
+.sidebar a:hover {
+    background-color: #163b68;
+    color: white;
+}
+
+.sidebar a.active {
+    background-color: #1e6fd9;
+    color: white;
+}
+
+.sidebar .logout {
+    margin-top: 25px;
+    color: #ffb4b4;
+}
+
+/* ================= MAIN ================= */
+
+.main {
+    margin-left: 250px;
+    min-height: 100vh;
+    padding: 0 30px 40px;
+}
+
+/* ================= TOP BAR ================= */
+
+.top-bar {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search-bar {
+    width: 400px;
+    padding: 12px 18px;
+    border: 1px solid #d7deea;
+    border-radius: 10px;
+    background-color: white;
+    outline: none;
+    font-size: 14px;
+}
+
+.search-bar:focus {
+    border-color: #1e6fd9;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.bell-icon {
+    font-size: 20px;
+}
+
+.user-name {
+    font-weight: 600;
+}
+
+/* ================= HEADING ================= */
+
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 0 25px;
+}
+
+.heading h2 {
+    font-size: 28px;
+    color: #1a2238;
+    margin-bottom: 5px;
+}
+
+.heading p {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.heading button {
+    background-color: #1e6fd9;
+    color: white;
+    border: none;
+    padding: 11px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.heading button:hover {
+    background-color: #155bb5;
+}
+
+/* ================= MAIN CARD ================= */
+
+.card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 25px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+/* ================= TABS ================= */
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.tabs button {
+    background: transparent;
+    border: none;
+    padding: 9px 15px;
+    font-size: 14px;
+    color: #6b7280;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+.tabs button.selected {
+    background-color: #eaf3ff;
+    color: #1e6fd9;
+    font-weight: 600;
+}
+
+/* ================= TABLE ================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+table th {
+    font-size: 13px;
+    color: #6b7280;
+    padding: 14px 12px;
+    background-color: #f8fafc;
+}
+
+table td {
+    padding: 16px 12px;
+    font-size: 14px;
+    border-bottom: 1px solid #eef1f5;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+/* ================= STATUS ================= */
+
+.due {
+    background-color: #fff1f1;
+    color: #dc2626;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.upcoming {
+    background-color: #fff7df;
+    color: #b77900;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* ================= PAY BUTTON ================= */
+
+.pay {
+    background-color: #1e6fd9;
+    color: white;
+    border: none;
+    padding: 7px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.pay:hover {
+    background-color: #155bb5;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        width: 70px;
+        padding: 20px 10px;
+    }
+
+    .sidebar h1 {
+        font-size: 0;
+        text-align: center;
+    }
+
+    .sidebar h1::after {
+        content: "F";
+        font-size: 26px;
+    }
+
+    .sidebar h4 {
+        display: none;
+    }
+
+    .sidebar a {
+        font-size: 0;
+        text-align: center;
+        padding: 12px 5px;
+    }
+
+    .main {
+        margin-left: 70px;
+        padding: 0 20px 30px;
+    }
+
+    .search-bar {
+        width: 300px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .main {
+        margin-left: 60px;
+        padding: 0 15px 25px;
+    }
+
+    .top-bar {
+        height: auto;
+        padding: 20px 0;
+        gap: 15px;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .user-name {
+        display: none;
+    }
+
+    .heading {
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .heading h2 {
+        font-size: 23px;
+    }
+
+    .card {
+        padding: 15px;
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 650px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .heading {
+        flex-direction: column;
+    }
+
+    .heading button {
+        width: 100%;
+    }
+
+    .tabs {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}

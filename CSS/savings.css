@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -7,31 +6,39 @@
 }
 
 body {
-    background-color: whitesmoke;
-    color: darkslategray;
+    background-color: #f4f7fc;
+    color: #1a2238;
 }
 
-/* Page Outer Layout Structure */
+/* ================= LAYOUT ================= */
+
 .main-container {
     display: flex;
     min-height: 100vh;
 }
 
-/* Left Sidebar Area */
+/* ================= SIDEBAR ================= */
+
 .sidebar {
-    width: 220px;
-    background-color: darkblue;
+    width: 283px;
+    min-height: 100vh;
+    background-color: #0b2545;
     color: white;
-    padding: 20px;
+    padding: 25px 20px;
     display: flex;
     flex-direction: column;
 }
 
+/* FinEdge Logo */
+
 .logo {
-    color: dodgerblue;
-    font-size: 22px;
-    margin-bottom: 30px;
+    color: white;
+    font-size: 32px;
+    margin-bottom: 28px;
+    font-weight: 600;
 }
+
+/* Navigation */
 
 .nav-links {
     list-style: none;
@@ -39,31 +46,66 @@ body {
 }
 
 .nav-links li {
+    margin-bottom: 3px;
+}
+
+/* Section Titles */
+
+.nav-links .nav-section {
+    color: #9fb5d1;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 22px;
     margin-bottom: 8px;
 }
 
+/* Navigation Links */
+
 .nav-links a {
-    color: lightgray;
+    color: #dce7f5;
     text-decoration: none;
     display: block;
-    padding: 10px;
-    border-radius: 6px;
+    padding: 10px 14px;
+    border-radius: 8px;
     font-size: 14px;
+    margin-bottom: 2px;
 }
 
-.nav-links a.active, 
-.nav-links a:hover {
-    background-color: darkslateblue;
+/* Active Page */
+
+.nav-links a.active {
+    background-color: #1e6fd9;
     color: white;
 }
 
+/* Hover */
+
+.nav-links a:hover {
+    background-color: #163b68;
+    color: white;
+}
+
+/* Logout */
+
+.logout-btn {
+    margin-top: auto;
+}
+
 .logout-btn a {
-    color: crimson;
+    color: #ff8b8b;
     text-decoration: none;
+    display: block;
+    padding: 10px 14px;
     font-size: 14px;
 }
 
-/* Right Dashboard Main Area */
+.logout-btn a:hover {
+    color: white;
+}
+
+
+/* ================= MAIN CONTENT ================= */
+
 .content-area {
     flex: 1;
     padding: 20px 30px;
@@ -72,7 +114,9 @@ body {
     gap: 20px;
 }
 
-/* Header Top Section */
+
+/* ================= TOP BAR ================= */
+
 .top-bar {
     display: flex;
     justify-content: space-between;
@@ -80,11 +124,17 @@ body {
 }
 
 .search-bar {
-    padding: 8px 12px;
-    width: 220px;
-    border: 1px solid lightgray;
-    border-radius: 6px;
+    padding: 12px 16px;
+    width: 250px;
+    border: 1px solid #d7deea;
+    border-radius: 8px;
     outline: none;
+    background-color: white;
+    font-size: 14px;
+}
+
+.search-bar:focus {
+    border-color: #1e6fd9;
 }
 
 .user-info {
@@ -92,7 +142,9 @@ body {
     font-weight: bold;
 }
 
-/* Title and Add Button Row */
+
+/* ================= HEADER ================= */
+
 .header-section {
     display: flex;
     justify-content: space-between;
@@ -100,34 +152,44 @@ body {
 }
 
 .header-section h2 {
-    font-size: 20px;
-    color: darkslateblue;
+    font-size: 24px;
+    color: #1a2238;
 }
 
 .header-section p {
-    font-size: 13px;
-    color: dimgray;
+    font-size: 14px;
+    color: #6b7280;
+    margin-top: 3px;
 }
 
 .add-btn {
-    background-color: royalblue;
+    background-color: #1e6fd9;
     color: white;
     border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
+    padding: 11px 18px;
+    border-radius: 7px;
     font-weight: bold;
     cursor: pointer;
 }
 
-/* Card General Styling */
-.card {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    border: 1px solid lightgray;
+.add-btn:hover {
+    background-color: #155bb5;
 }
 
-/* Goals Grid Layout (Flexbox based) */
+
+/* ================= CARD ================= */
+
+.card {
+    background-color: white;
+    border-radius: 16px;
+    padding: 25px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+
+/* ================= GOALS GRID ================= */
+
 .goals-grid {
     display: flex;
     flex-wrap: wrap;
@@ -141,23 +203,34 @@ body {
     align-items: center;
 }
 
-/* Goal Square Icon Box */
+
+/* ================= GOAL ICON ================= */
+
 .goal-icon {
-    width: 50px;
-    height: 50px;
-    background-color: aliceblue;
-    border-radius: 10px;
+    width: 58px;
+    height: 58px;
+    min-width: 58px;
+    background-color: #eef6ff;
+    border-radius: 12px;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 22px;
+
+    font-size: 24px;
 }
+
+
+/* ================= GOAL DETAILS ================= */
 
 .goal-details {
     flex: 1;
+    min-width: 0;
 }
 
-/* Goal Title and Target Amount */
+
+/* ================= GOAL HEADER ================= */
+
 .goal-header {
     display: flex;
     justify-content: space-between;
@@ -166,74 +239,174 @@ body {
 }
 
 .goal-header h4 {
-    font-size: 15px;
-    color: darkslateblue;
+    font-size: 17px;
+    color: #1a2238;
 }
 
 .goal-target {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: bold;
-    color: darkslateblue;
+    color: #1a2238;
 }
 
-/* Progress Bar Flex Structure */
-.progress-bar-wrap {
+
+/* ================= PROGRESS ROW ================= */
+
+.progress-row {
     display: flex;
     align-items: center;
     gap: 10px;
-    background-color: gainsboro;
-    border-radius: 6px;
-    height: 8px;
-    position: relative;
-    margin-bottom: 12px;
 }
 
-.progress-bar {
-    height: 100%;
-    border-radius: 6px;
+.progress-bg {
+    flex: 1;
+    height: 8px;
+    background-color: #e5e7eb;
+    border-radius: 10px;
+    overflow: hidden;
 }
+
+.progress-fill {
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* Laptop */
 
 .bar-1 {
     width: 67%;
-    background-color: royalblue;
+    background-color: #1e6fd9;
 }
+
+/* Europe Trip */
 
 .bar-2 {
     width: 33%;
-    background-color: deepskyblue;
+    background-color: #20b8b0;
 }
 
-.bar-3 {
-    width: 50%;
-    background-color: royalblue;
+.percent-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1a2238;
+    min-width: 32px;
 }
 
-.bar-4 {
-    width: 20%;
-    background-color: royalblue;
-}
 
-.percentage {
-    position: absolute;
-    right: -35px;
-    font-size: 12px;
-    font-weight: bold;
-    color: darkblue;
-}
+/* ================= GOAL FOOTER ================= */
 
-/* Card Bottom Footer */
 .goal-footer {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
     font-size: 12px;
 }
 
 .saved-amount {
-    color: lightseagreen;
+    color: #16a6a0;
     font-weight: bold;
 }
 
 .target-date {
-    color: dimgray;
+    color: #6b7280;
 }
 
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1000px) {
+
+    .sidebar {
+        width: 240px;
+    }
+
+    .goal-card {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .sidebar {
+        width: 210px;
+        padding: 20px 15px;
+    }
+
+    .content-area {
+        padding: 15px;
+    }
+
+    .search-bar {
+        width: 200px;
+    }
+
+    .header-section {
+        gap: 15px;
+    }
+
+    .goal-card {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 550px) {
+
+    .main-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+        position: relative;
+    }
+
+    .nav-links {
+        flex-grow: 0;
+    }
+
+    .logout-btn {
+        margin-top: 15px;
+    }
+
+    .content-area {
+        width: 100%;
+    }
+
+    .top-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .search-bar {
+        width: 100%;
+    }
+
+    .header-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .add-btn {
+        width: 100%;
+    }
+
+    .goal-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .goal-details {
+        width: 100%;
+    }
+
+    .goal-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+}
