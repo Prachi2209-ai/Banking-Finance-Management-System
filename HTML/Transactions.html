@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <title>Transactions - FinEdge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/Transactions.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Sidebar (Navy Blue #1a2c5a) -->
+        <nav class="sidebar">
+            <div class="logo"><i class="fas fa-question-circle"></i> FinEdge</div>
+            <a href="#"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="#"><i class="fas fa-credit-card"></i> Accounts & Cards</a>
+            <a href="#"><i class="fas fa-exchange-alt"></i> Money Transfer</a>
+            <a href="#" class="active"><i class="fas fa-receipt"></i> Transactions</a>
+            <a href="#"><i class="fas fa-wallet"></i> Budget & Expenses</a>
+            <a href="#"><i class="fas fa-bullseye"></i> Savings Goals</a>
+            <a href="#"><i class="fas fa-file-invoice-dollar"></i> Bills & Payments</a>
+            <a href="#"><i class="fas fa-user-circle"></i> Profile</a>
+            <a href="#"><i class="fas fa-cog"></i> Settings</a>
+            <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="header">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" placeholder="Search anything...">
+                </div>
+                <div class="user-profile">
+                    <i class="far fa-bell bell-icon"></i>
+                    <div class="user-info">
+                        <strong>User Name</strong>
+                        <p>Student</p>
+                    </div>
+                    <i class="fas fa-chevron-down arrow-icon"></i>
+                </div>
+            </header>
+
+            <!-- Title -->
+            <div class="title-bar">
+                <h1>Transactions</h1>
+                <p class="subtitle">View and manage your transaction history</p>
+            </div>
+
+            <!-- Filters Bar -->
+            <div class="filter-bar">
+                <div class="search-tx">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search transactions...">
+                </div>
+                <select class="select-filter">
+                    <option>All Types</option>
+                </select>
+                <select class="select-filter">
+                    <option>Last 3 Months</option>
+                </select>
+                <!-- Button (Medium Blue #2563eb) -->
+                <button class="btn-export"><i class="fas fa-download"></i> Export</button>
+            </div>
+
+            <!-- Table -->
+            <div class="table-card">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>14 Sep 2025</td>
+                            <td><b>Amazon</b></td>
+                            <td><span class="dot red"></span> Shopping</td>
+                            <td class="negative">- ₹2,499</td>
+                            <td><span class="badge completed">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>12 Sep 2025</td>
+                            <td><b>Swiggy</b></td>
+                            <td><span class="dot orange"></span> Food</td>
+                            <td class="negative">- ₹450</td>
+                            <td><span class="badge completed">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>10 Sep 2025</td>
+                            <td><b>Electricity Bill</b></td>
+                            <td><span class="dot green"></span> Bills</td>
+                            <td class="negative">- ₹1,200</td>
+                            <td><span class="badge completed">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>01 Sep 2025</td>
+                            <td><b>Salary Credit</b></td>
+                            <td><span class="dot green"></span> Income</td>
+                            <td class="positive">+ ₹32,000</td>
+                            <td><span class="badge completed">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>28 Aug 2025</td>
+                            <td><b>Transfer to Priya</b></td>
+                            <td><span class="dot blue"></span> Transfer</td>
+                            <td class="negative">- ₹5,000</td>
+                            <td><span class="badge completed">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>25 Aug 2025</td>
+                            <td><b>Zomato</b></td>
+                            <td><span class="dot orange"></span> Food</td>
+                            <td class="negative">- ₹620</td>
+                            <td><span class="badge completed">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td>20 Aug 2025</td>
+                            <td><b>Netflix Subscription</b></td>
+                            <td><span class="dot red"></span> Entertainment</td>
+                            <td class="negative">- ₹499</td>
+                            <td><span class="badge completed">Completed</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>
