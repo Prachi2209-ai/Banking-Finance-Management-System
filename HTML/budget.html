@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget & Expenses - FinEdge</title>
+    <link rel="stylesheet" href="../CSS/budget.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <!-- Left Sidebar Navigation -->
+        <div class="sidebar">
+            <h2 class="logo">FinEdge</h2>
+            <ul class="nav-links">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="accounts.html">Accounts & Cards</a></li>
+                <li><a href="transfer.html">Money Transfer</a></li>
+                <li><a href="transactions.html">Transactions</a></li>
+                <li><a href="budget.html">Budget & Expenses</a></li>
+                <li><a href="savings.html" class="active">Savings Goals</a></li>
+                <li><a href="bills.html">Bills & Payments</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+            <div class="logout-btn">
+                <a href="login.html">Logout</a>
+            </div>
+        </div>
+
+        <!-- Right Main Dashboard Content -->
+        <div class="content-area">
+            <!-- Top Navigation Bar -->
+            <div class="top-bar">
+                <input type="text" placeholder="Search..." class="search-bar">
+                <div class="user-info">
+                    
+                </div>
+            </div>
+
+            <!-- Header Title and Add Button -->
+            <div class="header-section">
+                <div>
+                    <h2>Budget & Expenses</h2>
+                    <p>Track your spending and stay on budget</p>
+                </div>
+                <button class="add-btn">+ Create Budget</button>
+            </div>
+
+            <!-- Top Summary Cards (Budget vs Remaining) -->
+            <div class="top-cards">
+                <!-- Card 1: Monthly Budget -->
+                <div class="card">
+                    <span class="card-title">Monthly Budget</span>
+                    <h3 class="amount">₹20,000</h3>
+                    <div class="progress-container">
+                        <div class="progress-bar spent-bar"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span>₹12,500 spent</span>
+                        <span>62%</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Remaining -->
+                <div class="card">
+                    <span class="card-title">Remaining</span>
+                    <h3 class="amount green-text">₹7,500</h3>
+                    <div class="progress-container">
+                        <div class="progress-bar remaining-bar"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span>38% of budget left</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Analytics Section (Breakdown + Monthly Trend) -->
+            <div class="analytics-section">
+                <!-- Left: Expense Breakdown -->
+                <div class="card analytics-card">
+                    <h4>Expense Breakdown</h4>
+                    <div class="chart-content">
+                        <!-- Simple Circle Chart Mockup -->
+                        <div class="donut-chart">
+                            <div class="donut-center">
+                                <strong>₹12,500</strong>
+                                <small>Total Spent</small>
+                            </div>
+                        </div>
+
+                        <!-- Category List -->
+                        <div class="legend-list">
+                            <div class="legend-item"><span class="dot food"></span> Food <strong>32%</strong></div>
+                            <div class="legend-item"><span class="dot transport"></span> Transport <strong>15%</strong></div>
+                            <div class="legend-item"><span class="dot shopping"></span> Shopping <strong>20%</strong></div>
+                            <div class="legend-item"><span class="dot bills"></span> Bills <strong>18%</strong></div>
+                            <div class="legend-item"><span class="dot ent"></span> Entertainment <strong>10%</strong></div>
+                            <div class="legend-item"><span class="dot others"></span> Others <strong>5%</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Monthly Trend Bar Chart -->
+                <div class="card analytics-card">
+                    <h4>Monthly Trend</h4>
+                    <div class="trend-chart">
+                        <div class="chart-row">
+                            <!-- Y-axis value labels -->
+                            <div class="y-axis">
+                                <span>20k</span>
+                                <span>15k</span>
+                                <span>10k</span>
+                                <span>5k</span>
+                                <span>0</span>
+                            </div>
+                            <!-- Plot area: gridlines + bars -->
+                            <div class="plot-area">
+                                <div class="grid-line" style="bottom: 100%;"></div>
+                                <div class="grid-line" style="bottom: 75%;"></div>
+                                <div class="grid-line" style="bottom: 50%;"></div>
+                                <div class="grid-line" style="bottom: 25%;"></div>
+                                <div class="grid-line" style="bottom: 0%;"></div>
+                                <div class="bars">
+                                    <div class="bar-track"><div class="bar" style="height: 40%;"></div></div>
+                                    <div class="bar-track"><div class="bar" style="height: 55%;"></div></div>
+                                    <div class="bar-track"><div class="bar" style="height: 80%;"></div></div>
+                                    <div class="bar-track"><div class="bar" style="height: 45%;"></div></div>
+                                    <div class="bar-track"><div class="bar" style="height: 90%;"></div></div>
+                                    <div class="bar-track"><div class="bar" style="height: 62%;"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- X-axis month labels -->
+                        <div class="x-axis">
+                            <span>Jan</span>
+                            <span>Feb</span>
+                            <span>Mar</span>
+                            <span>Apr</span>
+                            <span>May</span>
+                            <span>Jun</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
