@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinEdge - Transactions</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../CSS/Transactions.css">
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">
+        <i data-lucide="help-circle"></i>
+      </div>
+      <span class="brand-text">FinEdge</span>
+    </div>
+
+    <nav class="nav-menu">
+      <a href="./Dashboard.html" class="nav-item">
+        <span>Dashboard</span>
+      </a>
+
+      <div class="nav-section-title">BANKING SERVICES</div>
+
+      <a href="./AccountsCards.html" class="nav-item">
+        <span>Accounts & Cards</span>
+      </a>
+      <a href="./MoneyTransfer.html" class="nav-item">
+        <span>Money Transfer</span>
+      </a>
+      <a href="./Transactions.html" class="nav-item active">
+        <span>Transactions</span>
+      </a>
+
+      <div class="nav-section-title">PERSONAL FINANCE</div>
+
+      <a href="./BudgetExpenses.html" class="nav-item">
+        <span>Budget & Expenses</span>
+      </a>
+      <a href="./SavingsGoals.html" class="nav-item">
+        <span>Savings Goals</span>
+      </a>
+      <a href="./BillsPayments.html" class="nav-item">
+        <span>Bills & Payments</span>
+      </a>
+
+      <div class="nav-section-title">PROFILE & SETTINGS</div>
+
+      <a href="./Profile.html" class="nav-item">
+        <span>Profile</span>
+      </a>
+      <a href="./Settings.html" class="nav-item">
+        <span>Settings</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="#" class="nav-item logout-link">
+        <span>Logout</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN WRAPPER -->
+  <div class="main-wrapper">
+    <!-- TOP HEADER -->
+    <header class="top-header">
+      <div class="header-search">
+        <i data-lucide="search"></i>
+        <input type="text" placeholder="Search anything...">
+      </div>
+
+      <div class="header-actions">
+        <button class="icon-btn" aria-label="Notifications">
+          <i data-lucide="bell"></i>
+        </button>
+        <div class="user-profile">
+          <div class="user-details">
+            <span class="user-name">User Name</span>
+            <span class="user-role">Student</span>
+          </div>
+          <i data-lucide="chevron-down" class="chevron-icon"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="main-content">
+      <div class="page-header">
+        <h1 class="page-title">Transactions</h1>
+        <p class="page-subtitle">View and manage your transaction history</p>
+      </div>
+
+      <!-- FILTER BAR -->
+      <div class="filter-bar">
+        <div class="search-input-wrapper">
+          <i data-lucide="search"></i>
+          <input type="text" placeholder="Search transactions...">
+        </div>
+
+        <div class="filter-controls">
+          <select class="custom-select">
+            <option>All Types</option>
+            <option>Income</option>
+            <option>Shopping</option>
+            <option>Food</option>
+            <option>Bills</option>
+            <option>Transfer</option>
+          </select>
+
+          <select class="custom-select">
+            <option>Last 3 Months</option>
+            <option>This Month</option>
+            <option>Last 6 Months</option>
+          </select>
+
+          <button class="btn-export">
+            <i data-lucide="download"></i>
+            Export
+          </button>
+        </div>
+      </div>
+
+      <!-- TRANSACTIONS TABLE CARD -->
+      <div class="card-box">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Description</th>
+              <th>Category</th>
+              <th class="text-right">Amount</th>
+              <th class="text-center">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="td-date">14 Sep 2026</td>
+              <td class="td-desc">Amazon</td>
+              <td><span class="cat-badge cat-red"><span class="dot"></span> Shopping</span></td>
+              <td class="td-amount amount-debit">- ₹2,499</td>
+              <td class="text-center"><span class="status-badge">Completed</span></td>
+            </tr>
+            <tr>
+              <td class="td-date">12 Sep 2026</td>
+              <td class="td-desc">Swiggy</td>
+              <td><span class="cat-badge cat-orange"><span class="dot"></span> Food</span></td>
+              <td class="td-amount amount-debit">- ₹450</td>
+              <td class="text-center"><span class="status-badge">Completed</span></td>
+            </tr>
+            <tr>
+              <td class="td-date">10 Sep 2026</td>
+              <td class="td-desc">Electricity Bill</td>
+              <td><span class="cat-badge cat-green"><span class="dot"></span> Bills</span></td>
+              <td class="td-amount amount-debit">- ₹1,200</td>
+              <td class="text-center"><span class="status-badge">Completed</span></td>
+            </tr>
+            <tr>
+              <td class="td-date">01 Sep 2026</td>
+              <td class="td-desc">Salary Credit</td>
+              <td><span class="cat-badge cat-green"><span class="dot"></span> Income</span></td>
+              <td class="td-amount amount-credit">+ ₹32,000</td>
+              <td class="text-center"><span class="status-badge">Completed</span></td>
+            </tr>
+            <tr>
+              <td class="td-date">28 Aug 2026</td>
+              <td class="td-desc">Transfer to Priya</td>
+              <td><span class="cat-badge cat-blue"><span class="dot"></span> Transfer</span></td>
+              <td class="td-amount amount-debit">- ₹5,000</td>
+              <td class="text-center"><span class="status-badge">Completed</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

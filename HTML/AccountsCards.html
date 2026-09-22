@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinEdge - Accounts & Cards</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="../CSS/AccountsCards.css">
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-icon">
+        <i data-lucide="help-circle"></i>
+      </div>
+      <span class="brand-text">FinEdge</span>
+    </div>
+
+    <nav class="nav-menu">
+      <a href="./Dashboard.html" class="nav-item">
+        <span>Dashboard</span>
+      </a>
+
+      <div class="nav-section-title">BANKING SERVICES</div>
+
+      <a href="./AccountsCards.html" class="nav-item active">
+        <span>Accounts & Cards</span>
+      </a>
+      <a href="./MoneyTransfer.html" class="nav-item">
+        <span>Money Transfer</span>
+      </a>
+      <a href="./Transactions.html" class="nav-item">
+        <span>Transactions</span>
+      </a>
+
+      <div class="nav-section-title">PERSONAL FINANCE</div>
+
+      <a href="./BudgetExpenses.html" class="nav-item">
+        <span>Budget & Expenses</span>
+      </a>
+      <a href="./SavingsGoals.html" class="nav-item">
+        <span>Savings Goals</span>
+      </a>
+      <a href="./BillsPayments.html" class="nav-item">
+        <span>Bills & Payments</span>
+      </a>
+
+      <div class="nav-section-title">PROFILE & SETTINGS</div>
+
+      <a href="./Profile.html" class="nav-item">
+        <span>Profile</span>
+      </a>
+      <a href="./Settings.html" class="nav-item">
+        <span>Settings</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a href="#" class="nav-item logout-link">
+        <span>Logout</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN WRAPPER -->
+  <div class="main-wrapper">
+    <!-- TOP HEADER -->
+    <header class="top-header">
+      <div class="header-search">
+        <i data-lucide="search"></i>
+        <input type="text" placeholder="Search anything...">
+      </div>
+
+      <div class="header-actions">
+        <button class="icon-btn" aria-label="Notifications">
+          <i data-lucide="bell"></i>
+        </button>
+        <div class="user-profile">
+          <div class="user-details">
+            <span class="user-name">User Name</span>
+            <span class="user-role">Student</span>
+          </div>
+          <i data-lucide="chevron-down" class="chevron-icon"></i>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="main-content">
+      <div class="page-header-row">
+        <div>
+          <h1 class="page-title">Accounts & Cards</h1>
+          <p class="page-subtitle">Manage your bank accounts and cards</p>
+        </div>
+        <button class="btn-primary">
+          <i data-lucide="plus"></i> Add Account
+        </button>
+      </div>
+
+      <!-- ACCOUNTS SECTION -->
+      <section class="section-container">
+        <h2 class="section-title">Your Accounts</h2>
+        <div class="cards-grid">
+          <div class="info-card">
+            <div class="card-top">
+              <div class="icon-box green-icon"><i data-lucide="layout-grid"></i></div>
+              <i data-lucide="more-vertical" class="more-icon"></i>
+            </div>
+            <span class="card-label">Savings Account</span>
+            <div class="card-balance">₹85,240.00</div>
+            <div class="card-subtext">•••• 1234</div>
+            <div class="card-footer-badge">
+              <span class="tag-badge">AMP</span>
+              <span class="status-badge green-status">• Active</span>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="card-top">
+              <div class="icon-box blue-icon"><i data-lucide="layout-grid"></i></div>
+              <i data-lucide="more-vertical" class="more-icon"></i>
+            </div>
+            <span class="card-label">Current Account</span>
+            <div class="card-balance">₹39,260.00</div>
+            <div class="card-subtext">•••• 5678</div>
+            <div class="card-footer-badge text-right">
+              <span class="status-badge green-status">• Active</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARDS SECTION -->
+      <section class="section-container">
+        <h2 class="section-title">Your Cards</h2>
+        <div class="cards-grid">
+          <div class="debit-card blue-card">
+            <div class="card-brand"><i data-lucide="aperture"></i> FinEdge</div>
+            <div class="card-number">•••• 4321</div>
+            <div class="card-details">
+              <div>
+                <span class="card-holder-label">CARD HOLDER</span>
+                <span class="card-holder-name">Om Gupta</span>
+              </div>
+              <div>
+                <span class="card-holder-label">VALID THRU</span>
+                <span class="card-holder-name">08/28</span>
+              </div>
+              <div class="visa-logo">VISA</div>
+            </div>
+          </div>
+
+          <div class="debit-card purple-card">
+            <div class="card-brand"><i data-lucide="aperture"></i> FinEdge</div>
+            <div class="card-number">•••• 9876</div>
+            <div class="card-details">
+              <div>
+                <span class="card-holder-label">CARD HOLDER</span>
+                <span class="card-holder-name">Om Gupta</span>
+              </div>
+              <div>
+                <span class="card-holder-label">VALID THRU</span>
+                <span class="card-holder-name">11/27</span>
+              </div>
+              <div class="mastercard-logo">
+                <span class="circle red"></span>
+                <span class="circle orange"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
