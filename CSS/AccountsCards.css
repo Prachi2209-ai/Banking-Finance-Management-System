@@ -1,28 +1,18 @@
-/* ==========================================================================
-   DESIGN SYSTEM & COLOR PALETTE
-   ========================================================================== */
 :root {
-  /* Color Tokens matching the design image */
-  --sidebar-bg: #07122b;
-  --sidebar-hover: #12224d;
-  --sidebar-active: #2365e8;
+  --sidebar-bg: #0d1e3a;
+  --sidebar-hover: rgba(255, 255, 255, 0.05);
+  --sidebar-active: #2176ff;
   --sidebar-text: #94a3b8;
-  
-  --bg-main: #f0f4f8;
+  --sidebar-title: #475569;
+  --bg-main: #f3f6fc;
   --card-bg: #ffffff;
-  --card-border: #e2e8f0;
-  
+  --border-color: #e2e8f0;
   --text-dark: #0f172a;
   --text-muted: #64748b;
-  
-  --primary-blue: #2563eb;
-  --primary-blue-hover: #1d4ed8;
-  
-  --status-active-bg: #e6f7ed;
-  --status-active-text: #10b981;
-
-  --sidebar-width: 230px;
-  --header-height: 64px;
+  --primary-blue: #2176ff;
+  --primary-blue-hover: #1b65dc;
+  --sidebar-width: 240px;
+  --header-height: 60px;
 }
 
 * {
@@ -39,9 +29,7 @@ body {
   min-height: 100vh;
 }
 
-/* ==========================================================================
-   SIDEBAR
-   ========================================================================== */
+/* SIDEBAR STYLES */
 .sidebar {
   width: var(--sidebar-width);
   background-color: var(--sidebar-bg);
@@ -52,18 +40,20 @@ body {
   bottom: 0;
   left: 0;
   z-index: 100;
+  padding: 16px 12px;
 }
 
 .brand {
-  height: var(--header-height);
+  height: 48px;
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 0 20px;
+  padding: 0 8px;
   color: #ffffff;
+  margin-bottom: 12px;
 }
 
-.brand-logo-icon {
+.brand-icon {
   width: 28px;
   height: 28px;
   background-color: var(--primary-blue);
@@ -73,30 +63,35 @@ body {
   justify-content: center;
 }
 
-.brand-logo-icon i {
+.brand-icon i {
   width: 16px;
   height: 16px;
   color: #ffffff;
 }
 
-.brand-name {
+.brand-text {
   font-size: 18px;
   font-weight: 700;
-  letter-spacing: -0.3px;
 }
 
 .nav-menu {
-  padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 4px;
   flex-grow: 1;
 }
 
+.nav-section-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: var(--sidebar-title);
+  padding: 16px 12px 6px 12px;
+}
+
 .nav-item {
   display: flex;
   align-items: center;
-  gap: 12px;
   padding: 10px 14px;
   border-radius: 8px;
   color: var(--sidebar-text);
@@ -104,11 +99,6 @@ body {
   font-weight: 500;
   text-decoration: none;
   transition: all 0.2s ease;
-}
-
-.nav-item i {
-  width: 18px;
-  height: 18px;
 }
 
 .nav-item:hover {
@@ -119,16 +109,24 @@ body {
 .nav-item.active {
   background-color: var(--sidebar-active);
   color: #ffffff;
+  font-weight: 600;
 }
 
 .sidebar-footer {
-  padding: 12px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin-top: auto;
+  padding-top: 12px;
 }
 
-/* ==========================================================================
-   MAIN LAYOUT & TOP HEADER
-   ========================================================================== */
+.logout-link {
+  color: #ef4444;
+}
+
+.logout-link:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+/* MAIN WRAPPER & HEADER */
 .main-wrapper {
   margin-left: var(--sidebar-width);
   flex-grow: 1;
@@ -143,29 +141,29 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 28px;
-  border-bottom: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--border-color);
 }
 
-.search-box {
+.header-search {
   position: relative;
   width: 320px;
 }
 
-.search-box i {
+.header-search i {
   position: absolute;
   left: 12px;
   top: 50%;
   transform: translateY(-50%);
   color: var(--text-muted);
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
 }
 
-.search-box input {
+.header-search input {
   width: 100%;
-  padding: 8px 12px 8px 36px;
+  padding: 7px 12px 7px 36px;
   background-color: #f8fafc;
-  border: 1px solid var(--card-border);
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   font-size: 13px;
   outline: none;
@@ -182,8 +180,6 @@ body {
   border: none;
   color: var(--text-muted);
   cursor: pointer;
-  display: flex;
-  align-items: center;
 }
 
 .user-profile {
@@ -194,25 +190,24 @@ body {
 }
 
 .avatar {
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.user-info {
+.user-details {
   display: flex;
   flex-direction: column;
 }
 
 .user-name {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
-  color: var(--text-dark);
 }
 
 .user-role {
-  font-size: 11px;
+  font-size: 10px;
   color: var(--text-muted);
 }
 
@@ -222,279 +217,203 @@ body {
   color: var(--text-muted);
 }
 
-/* ==========================================================================
-   CONTENT CONTAINER
-   ========================================================================== */
-.content-container {
+/* MAIN CONTENT AREA */
+.main-content {
   padding: 28px;
-  max-width: 1200px;
+  max-width: 1100px;
   width: 100%;
-  margin: 0 auto;
 }
 
-.page-header {
+.page-header-row {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 28px;
+  align-items: center;
+  margin-bottom: 24px;
 }
 
 .page-title {
   font-size: 22px;
   font-weight: 700;
-  color: var(--text-dark);
 }
 
 .page-subtitle {
   font-size: 13px;
   color: var(--text-muted);
-  margin-top: 2px;
+  margin-top: 4px;
 }
 
-.btn-add-account {
+.btn-primary {
   background-color: var(--primary-blue);
-  color: #ffffff;
+  color: white;
   border: none;
   padding: 9px 16px;
   border-radius: 8px;
-  font-size: 13px;
   font-weight: 600;
+  font-size: 13px;
   display: flex;
   align-items: center;
   gap: 6px;
   cursor: pointer;
-  transition: background-color 0.2s;
 }
 
-.btn-add-account:hover {
+.btn-primary:hover {
   background-color: var(--primary-blue-hover);
 }
 
-.btn-add-account i {
-  width: 16px;
-  height: 16px;
-}
-
-.section-group {
+/* ACCOUNTS & CARDS SPECIFIC */
+.section-container {
   margin-bottom: 28px;
 }
 
 .section-title {
   font-size: 15px;
-  font-weight: 700;
-  color: var(--text-dark);
-  margin-bottom: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
 }
 
-/* ==========================================================================
-   ACCOUNTS CARDS
-   ========================================================================== */
-.accounts-grid {
+.cards-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
 }
 
-.account-card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--card-border);
+.info-card {
+  background: white;
+  border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
 }
 
-.account-card-header {
+.card-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 12px;
 }
 
-.account-icon {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
+.icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.account-icon i {
+.green-icon { background: #dcfce7; color: #16a34a; }
+.blue-icon { background: #dbeafe; color: #2563eb; }
+
+.more-icon {
+  color: var(--text-muted);
+  cursor: pointer;
   width: 18px;
   height: 18px;
-  color: #ffffff;
 }
 
-.green-icon {
-  background-color: #10b981;
-}
-
-.blue-icon {
-  background-color: #0284c7;
-}
-
-.options-icon {
-  width: 16px;
-  height: 16px;
-  color: #cbd5e1;
-  cursor: pointer;
-}
-
-.account-card-body {
-  margin: 16px 0;
-}
-
-.account-type-label {
+.card-label {
   font-size: 13px;
   color: var(--text-muted);
-  font-weight: 500;
 }
 
-.account-balance {
+.card-balance {
   font-size: 22px;
   font-weight: 700;
-  color: var(--text-dark);
   margin: 4px 0;
 }
 
-.account-mask {
+.card-subtext {
   font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.card-footer-badge {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.tag-badge {
+  background: #f1f5f9;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
   color: var(--text-muted);
 }
 
-.account-card-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.bank-logo-text {
-  font-weight: 700;
+.status-badge {
   font-size: 12px;
-  color: #10b981;
-  letter-spacing: 0.5px;
-}
-
-.badge-status {
-  background-color: var(--status-active-bg);
-  color: var(--status-active-text);
-  font-size: 11px;
   font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 20px;
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
 }
 
-.badge-status .dot {
-  width: 6px;
-  height: 6px;
-  background-color: var(--status-active-text);
-  border-radius: 50%;
-}
+.green-status { color: #16a34a; }
+.text-right { margin-left: auto; }
 
-/* ==========================================================================
-   CREDIT CARDS
-   ========================================================================== */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.credit-card {
-  height: 180px;
-  border-radius: 14px;
+/* DEBIT CARDS */
+.debit-card {
+  border-radius: 12px;
   padding: 20px;
-  color: #ffffff;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  height: 170px;
 }
 
-.card-blue {
-  background: linear-gradient(135deg, #1d4ed8 0%, #0369a1 100%);
-}
-
-.card-purple {
-  background: linear-gradient(135deg, #2e1065 0%, #6b21a8 60%, #4c1d95 100%);
-}
-
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+.blue-card { background: linear-gradient(135deg, #1d4ed8, #2563eb); }
+.purple-card { background: linear-gradient(135deg, #6d28d9, #7c3aed); }
 
 .card-brand {
+  font-weight: 700;
+  font-size: 14px;
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
-.card-brand-icon {
-  width: 18px;
-  height: 18px;
-}
-
-.card-brand-name {
-  font-size: 15px;
-  font-weight: 700;
-}
-
 .card-number {
   font-size: 18px;
   letter-spacing: 2px;
-  font-weight: 500;
-  margin: 10px 0;
+  font-weight: 600;
 }
 
-.card-footer {
+.card-details {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
 
-.holder-name {
-  font-size: 13px;
+.card-holder-label {
+  display: block;
+  font-size: 9px;
+  opacity: 0.8;
+  letter-spacing: 0.5px;
+}
+
+.card-holder-name {
+  font-size: 12px;
   font-weight: 600;
 }
 
-.expiry-date {
-  font-size: 10px;
-  opacity: 0.8;
-  margin-top: 2px;
-}
-
 .visa-logo {
-  font-size: 18px;
   font-weight: 800;
   font-style: italic;
-  letter-spacing: 0.5px;
+  font-size: 16px;
 }
 
 .mastercard-logo {
   display: flex;
-  align-items: center;
 }
 
-.mc-circle {
-  width: 22px;
-  height: 22px;
+.mastercard-logo .circle {
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
-  display: inline-block;
 }
 
-.mc-red {
-  background-color: #ef4444;
-  margin-right: -10px;
-}
-
-.mc-yellow {
-  background-color: #f59e0b;
-  opacity: 0.9;
-}
+.circle.red { background: #ef4444; opacity: 0.9; }
+.circle.orange { background: #f97316; margin-left: -6px; opacity: 0.9; }
