@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | FinEdge</title>
+  <link rel="stylesheet" href="../css/signup.css">
+</head>
+<body>
+
+  <div class="login-page">
+
+    <!-- LEFT SIDE: Branding / Info (same as login) -->
+    <div class="info-side">
+      <div class="info-content">
+
+        <div class="brand">
+          <h1>FinEdge</h1>
+          <p class="tagline">Your Finance. Our Priority.</p>
+        </div>
+
+        <h2 class="info-heading">Take Control of Your Finances</h2>
+        <p class="info-desc">
+          Manage your money, track your spending, plan your savings, and
+          stay in control of your finances — all in one place.
+        </p>
+
+        <ul class="benefits-list">
+          <li>
+            <span class="benefit-icon">🔒</span>
+            <div>
+              <h3>Secure</h3>
+              <p>Your financial information stays protected.</p>
+            </div>
+          </li>
+          <li>
+            <span class="benefit-icon">⚡</span>
+            <div>
+              <h3>Easy to Use</h3>
+              <p>Simple tools for better financial management.</p>
+            </div>
+          </li>
+          <li>
+            <span class="benefit-icon">🎯</span>
+            <div>
+              <h3>Plan Ahead</h3>
+              <p>Build and manage your financial goals.</p>
+            </div>
+          </li>
+        </ul>
+
+        <div class="shape shape-one"></div>
+        <div class="shape shape-two"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE: Sign Up Form -->
+    <div class="form-side">
+      <div class="form-box">
+
+        <h2>Create Your Account</h2>
+        <p class="form-subtitle">Join FinEdge and manage your finances easily.</p>
+
+        <form action="dashboard.html" method="get">
+
+          <div class="form-group">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Create a password" required>
+          </div>
+
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm_password" placeholder="Re-enter your password" required>
+          </div>
+
+          <div class="form-row">
+            <label class="checkbox-label">
+              <input type="checkbox" name="terms" required>
+              I agree to the Terms and Conditions
+            </label>
+          </div>
+
+          <button type="submit" class="btn-primary">Sign Up</button>
+
+          <p class="switch-text">
+            Already have an account? <a href="login.html">Login</a>
+          </p>
+
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FOOTER (same as login) -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>FinEdge</h3>
+        <p>Your Finance. Our Priority.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms &amp; Conditions</a></li>
+      </ul>
+    </div>
+    <p class="footer-copy">&copy; 2026 FinEdge. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | FinEdge</title>
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+  <div class="dashboard-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <h1>FinEdge</h1>
+      </div>
+
+      <nav class="sidebar-nav">
+
+        <a href="dashboard.html" class="nav-link active">Dashboard</a>
+
+        <p class="nav-group-title">Banking Services</p>
+        <a href="accounts.html" class="nav-link">Accounts &amp; Cards</a>
+        <a href="transfer.html" class="nav-link">Money Transfer</a>
+        <a href="transactions.html" class="nav-link">Transactions</a>
+
+        <p class="nav-group-title">Personal Finance</p>
+        <a href="budget.html" class="nav-link">Budget &amp; Expenses</a>
+        <a href="savings.html" class="nav-link">Savings Goals</a>
+        <a href="bills.html" class="nav-link">Bills &amp; Payments</a>
+
+        <p class="nav-group-title">Profile &amp; Settings</p>
+        <a href="profile.html" class="nav-link">Profile</a>
+        <a href="settings.html" class="nav-link">Settings</a>
+
+      </nav>
+
+      <a href="login.html" class="logout-link">Logout</a>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+      <!-- TOP BAR -->
+      <header class="topbar">
+        <input type="text" class="search-bar" placeholder="Search anything...">
+        <div class="topbar-right">
+          <span class="icon">🔔</span>
+          <span class="icon">👤</span>
+          <span class="username">Prachi Singh</span>
+        </div>
+      </header>
+
+      <!-- WELCOME -->
+      <section class="welcome-section">
+        <h2>Good Morning, User! ☀️</h2>
+        <p>Here's your financial overview for today.</p>
+      </section>
+
+      <!-- SUMMARY CARDS -->
+      <section class="summary-cards">
+
+        <div class="card">
+          <p class="card-label">Total Balance</p>
+          <h3 class="card-value">₹12,500</h3>
+          <p class="card-change positive">+2.5% from last month</p>
+        </div>
+
+        <div class="card">
+          <p class="card-label">Income</p>
+          <h3 class="card-value">₹32,000</h3>
+          <p class="card-change positive">+8.2% from last month</p>
+        </div>
+
+        <div class="card">
+          <p class="card-label">Expenses</p>
+          <h3 class="card-value">₹18,500</h3>
+          <p class="card-change negative">-4.5% from last month</p>
+        </div>
+
+        <div class="card">
+          <p class="card-label">Savings</p>
+          <h3 class="card-value">₹45,000</h3>
+          <p class="card-change positive">+12.5% from last month</p>
+        </div>
+
+      </section>
+
+      <!-- SPENDING + TRANSACTIONS -->
+      <section class="dashboard-grid">
+
+        <!-- MONTHLY SPENDING (CSS-only donut) -->
+        <div class="card large-card">
+          <h3>Monthly Spending</h3>
+          <p class="muted">September 2026</p>
+          <p class="spending-total">₹18,500</p>
+
+          <div class="spending-content">
+            <div class="donut-chart"></div>
+
+            <ul class="legend">
+              <li><span class="dot dot-food"></span> Food — 25%</li>
+              <li><span class="dot dot-transport"></span> Transport — 18%</li>
+              <li><span class="dot dot-shopping"></span> Shopping — 20%</li>
+              <li><span class="dot dot-bills"></span> Bills — 15%</li>
+              <li><span class="dot dot-others"></span> Others — 22%</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- RECENT TRANSACTIONS -->
+        <div class="card large-card">
+          <div class="card-header-row">
+            <h3>Recent Transactions</h3>
+            <a href="transactions.html" class="view-all">View All</a>
+          </div>
+
+          <ul class="transaction-list">
+            <li>
+              <div>
+                <p class="tx-name">Salary Credit</p>
+                <p class="tx-date">Today</p>
+              </div>
+              <p class="tx-amount income">+₹32,000</p>
+            </li>
+            <li>
+              <div>
+                <p class="tx-name">Grocery</p>
+                <p class="tx-date">Yesterday</p>
+              </div>
+              <p class="tx-amount expense">-₹2,499</p>
+            </li>
+            <li>
+              <div>
+                <p class="tx-name">Electricity Bill</p>
+                <p class="tx-date">18 Sep 2026</p>
+              </div>
+              <p class="tx-amount expense">-₹1,200</p>
+            </li>
+            <li>
+              <div>
+                <p class="tx-name">Mobile Recharge</p>
+                <p class="tx-date">17 Sep 2026</p>
+              </div>
+              <p class="tx-amount expense">-₹699</p>
+            </li>
+          </ul>
+        </div>
+
+      </section>
+
+    </main>
+  </div>
+
+</body>
+</html>
