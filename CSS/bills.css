@@ -191,3 +191,341 @@ body {
     font-size: 12px; 
 }
 
+<<<<<<< Updated upstream
+=======
+body {
+    background: #f3f6fc;
+    color: #102b49;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 187px;
+    background: #102c4b;
+    color: white;
+    padding: 16px 13px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar h2 {
+    font-size: 24px;
+    margin-bottom: 22px;
+}
+
+.sidebar nav a,
+.sidebar nav p {
+    display: block;
+    padding: 10px;
+    font-size: 12px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.sidebar nav p {
+    padding-left: 0;
+    margin-top: 8px;
+}
+
+.sidebar nav a.active {
+    background: #2670e6;
+    border-radius: 7px;
+}
+
+.logout {
+    margin-top: auto;
+    padding: 10px;
+    color: #ff6262;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 14px 22px;
+    min-width: 0;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.topbar input {
+    width: 300px;
+    padding: 10px 13px;
+    border: 1px solid #ccd7e8;
+    border-radius: 7px;
+    outline: none;
+}
+
+.topbar span {
+    font-size: 13px;
+}
+
+.heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.heading h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.heading p {
+    font-size: 12px;
+    color: #60738e;
+}
+
+/* Buttons */
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+}
+
+.add-btn {
+    background: #2468ed;
+    color: white;
+    padding: 10px 17px;
+    font-size: 12px;
+}
+
+/* Summary Cards */
+.summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.summary-card {
+    background: white;
+    padding: 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.summary-card p {
+    color: #60738e;
+    font-size: 12px;
+    margin-bottom: 7px;
+}
+
+.summary-card h3 {
+    font-size: 17px;
+}
+
+/* Bill Section */
+.bill-section {
+    background: white;
+    padding: 18px 19px;
+    border-radius: 13px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.tabs {
+    display: flex;
+    gap: 8px;
+    border-bottom: 1px solid #d9e1ed;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.tab {
+    background: white;
+    padding: 9px 13px;
+    font-size: 12px;
+    color: #243b5b;
+}
+
+.tab.active {
+    background: #eaf1ff;
+    color: #1764ec;
+    font-weight: bold;
+}
+
+/* Table */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 650px;
+}
+
+th {
+    background: #f6f8fc;
+    color: #60738e;
+    text-align: left;
+    font-weight: normal;
+    font-size: 11px;
+    padding: 13px 9px;
+}
+
+td {
+    padding: 15px 9px;
+    border-bottom: 1px solid #e0e7f1;
+    font-size: 12px;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.due-soon {
+    background: #ffeded;
+    color: #ed3030;
+}
+
+.upcoming {
+    background: #fff3dc;
+    color: #d27a00;
+}
+
+.overdue {
+    background: #ffe0e0;
+    color: #d00000;
+}
+
+.paid {
+    background: #e0f8e8;
+    color: #159447;
+}
+
+/* Action Buttons */
+.pay-btn {
+    background: #2468ed;
+    color: white;
+    padding: 6px 13px;
+    font-size: 11px;
+}
+
+.pay-btn:disabled {
+    background: #cbd2dd;
+    color: #68758a;
+    cursor: not-allowed;
+}
+
+.edit-btn, .delete-btn {
+    padding: 6px 10px;
+    background: white;
+    border: 1px solid #d4deec;
+    font-size: 11px;
+    margin-left: 4px;
+}
+
+.edit-btn {
+    color: #29496e;
+}
+
+.delete-btn {
+    color: red;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.modal-content {
+    background: white;
+    padding: 25px;
+    width: 350px;
+    max-width: 90%;
+    border-radius: 12px;
+}
+
+.modal-content h2 {
+    font-size: 19px;
+    margin-bottom: 20px;
+}
+
+.modal-content label {
+    display: block;
+    font-size: 12px;
+    margin: 12px 0 6px;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccd7e8;
+    border-radius: 6px;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.cancel-btn {
+    padding: 10px 15px;
+    background: #e9edf4;
+    color: #243b5b;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+    .sidebar {
+        width: 140px;
+    }
+
+    .main-content {
+        padding: 12px;
+    }
+
+    .summary {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar input {
+        width: 60%;
+    }
+}
+
+@media(max-width: 480px) {
+    .sidebar {
+        width: 110px;
+        padding: 10px 5px;
+    }
+
+    .sidebar h2 {
+        font-size: 18px;
+    }
+
+    .sidebar nav a,
+    .sidebar nav p {
+        font-size: 10px;
+        padding: 8px 4px;
+    }
+
+    .heading h2 {
+        font-size: 17px;
+    }
+}
+>>>>>>> Stashed changes

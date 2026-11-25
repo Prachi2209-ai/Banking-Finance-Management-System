@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinEdge - Savings Goals</title>
+    <link rel="stylesheet" href="../CSS/savings.css">
+    <script src="../JAVASCRIPT/savings.js" defer></script>
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <h1 class="logo">FinEdge</h1>
+
+            <nav>
+                <a href="dashboard.html">Dashboard</a>
+
+                <p class="nav-heading">Banking Services</p>
+                <a href="AccountsCards.html">Accounts &amp; Cards</a>
+                <a href="MoneyTransfer.html">Money Transfer</a>
+                <a href="Transactions.html">Transactions</a>
+
+                <p class="nav-heading">Personal Finance</p>
+                <a href="BudgetExpenses.html">Budget &amp; Expenses</a>
+                <a class="active" href=SavingsGoals.html">SavingGoals</a>
+                <a href="BillsPayments.html">Bills&Payments</a>
+
+                <p class="nav-heading">Profile &amp; Settings</p>
+                <a href="profile.html">Profile</a>
+                <a href="settings.html">Settings</a>
+            </nav>
+
+            <a class="logout" href="signup.html">Logout</a>
+        </aside>
+
+        <main class="main">
+            <header class="topbar">
+                <input id="searchInput" type="search" placeholder="Search..." aria-label="Search goals">
+                <div class="user-area"><span>🔔</span><span>👤 User</span></div>
+            </header>
+
+            <section class="page-heading">
+                <div>
+                    <h2>Savings Goals</h2>
+                    <p>Save for what matters most</p>
+                </div>
+                <button id="addGoalBtn" class="primary-btn" type="button">+ Add Goal</button>
+            </section>
+
+            <section id="goalFormPanel" class="form-panel" hidden>
+                <div class="form-heading">
+                    <h3 id="formTitle">Add New Goal</h3>
+                    <button id="closeFormBtn" class="icon-btn" type="button" aria-label="Close form">✕</button>
+                </div>
+
+                <form id="goalForm">
+                    <div class="form-grid">
+                        <label>
+                            Goal name
+                            <input id="goalName" type="text" maxlength="60" placeholder="e.g. New Laptop" required>
+                        </label>
+                        <label>
+                            Target amount (₹)
+                            <input id="targetAmount" type="number" min="1" step="1" placeholder="60000" required>
+                        </label>
+                        <label>
+                            Amount saved (₹)
+                            <input id="savedAmount" type="number" min="0" step="1" value="0" required>
+                        </label>
+                        <label>
+                            Target date
+                            <input id="targetDate" type="date" required>
+                        </label>
+                        <label>
+                            Icon
+                            <select id="goalIcon">
+                                <option value="🎯">🎯 General</option>
+                                <option value="💻">💻 Laptop</option>
+                                <option value="✈️">✈️ Travel</option>
+                                <option value="🏠">🏠 Home</option>
+                                <option value="🚗">🚗 Car</option>
+                                <option value="🎓">🎓 Education</option>
+                                <option value="💰">💰 Savings</option>
+                            </select>
+                        </label>
+                    </div>
+                    <p id="formError" class="form-error" role="alert"></p>
+                    <div class="form-actions">
+                        <button id="cancelBtn" class="secondary-btn" type="button">Cancel</button>
+                        <button class="primary-btn" type="submit">Save Goal</button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="goalsContainer" class="goals-grid" aria-live="polite"></section>
+            <p id="emptyMessage" class="empty-message" hidden>No goals found. Click “+ Add Goal” to create one.</p>
+        </main>
+    </div>
+</body>
+</html>

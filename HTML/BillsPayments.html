@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinEdge - Bills & Payments</title>
+    <link rel="stylesheet" href="../CSS/bills.css">
+    <script src="../JAVASCRIPT/bills.js" defer></script>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>FinEdge</h2>
+
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <p >Banking Services</p>
+            <a href="AccountsCards.html">Accounts & Cards</a>
+            <a href="MoneyTransfer.html">Money Transfer</a>
+            <a>Transactions</a>
+
+            <p>Personal Finance</p>
+            <a href="BudgetExpenses.html">Budget & Expenses</a>
+            <a href="SavingsGoals.html">Saving Goals</a>
+            <a class="active">Bills & Payments</a>
+
+            <p>Profile & Settings</p>
+            <a href="profile.html">Profile</a>
+            <a href="settings.html">Settings</a>
+        </nav>
+
+        <a class="logout">Logout</a>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <div class="topbar">
+            <input type="text" id="searchInput"
+                   placeholder="Search anything...">
+            <span>🔔 &nbsp; 👤 User</span>
+        </div>
+
+        <div class="heading">
+            <div>
+                <h2>Bills & Payments</h2>
+                <p>Pay your bills and manage due dates</p>
+            </div>
+
+            <button class="add-btn" onclick="openAddBill()">
+                + Add Bill
+            </button>
+        </div>
+
+        <!-- Summary Cards -->
+        <section class="summary">
+
+            <div class="summary-card">
+                <p>Pending Bills</p>
+                <h3 id="pendingBills">0</h3>
+            </div>
+
+            <div class="summary-card">
+                <p>Pending Amount</p>
+                <h3 id="pendingAmount">₹0</h3>
+            </div>
+
+            <div class="summary-card">
+                <p>Total Paid</p>
+                <h3 id="totalPaid">₹0</h3>
+            </div>
+
+        </section>
+
+        <!-- Bills Section -->
+        <section class="bill-section">
+
+            <div class="tabs">
+                <button class="tab active" id="upcomingTab"
+                    onclick="showTab('upcoming')">
+                    Upcoming Bills
+                </button>
+
+                <button class="tab" id="historyTab"
+                    onclick="showTab('history')">
+                    Payment History
+                </button>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Bill</th>
+                            <th>Amount</th>
+                            <th>Due Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="billTable">
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+</div>
+
+<!-- Add/Edit Bill Modal -->
+<div class="modal" id="billModal">
+
+    <div class="modal-content">
+        <h2 id="modalTitle">Add New Bill</h2>
+
+        <form id="billForm">
+
+            <label>Bill Name</label>
+            <input type="text" id="billName"
+                   placeholder="Enter bill name" required>
+
+            <label>Amount</label>
+            <input type="number" id="billAmount"
+                   placeholder="Enter amount" min="1" required>
+
+            <label>Due Date</label>
+            <input type="date" id="billDate" required>
+
+            <div class="modal-buttons">
+                <button type="submit" class="add-btn">Save Bill</button>
+                <button type="button" class="cancel-btn"
+                    onclick="closeModal()">Cancel</button>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+
+
+</body>
+</html>
+
+

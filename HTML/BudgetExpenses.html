@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinEdge - Budget & Expenses</title>
+    <link rel="stylesheet" href="../CSS/budget.css">
+    <script src="../JAVASCRIPT/budget.js" defer></script>
+</head>
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+        <h1>FinEdge</h1>
+
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <p>Banking Services</p>
+            <a href="AccountsCards.html">Accounts & Cards</a>
+            <a href="MoneyTransfer.html">Money Transfer</a>
+            <a href="Transactions.html">Transactions</a>
+
+            <p>Personal Finance</p>
+            <a class="active" href="#">Budget & Expenses</a>
+            <a href="SavingsGoals.html">Savings Goals</a>
+            <a href="BillsPayments.html">Bills & Payments</a>
+
+            <p>Profile & Settings</p>
+            <a href="profile.html">Profile</a>
+            <a href="settings.html">Settings</a>
+        </nav>
+
+        <a class="logout" href="signup.html">Logout</a>
+    </aside>
+
+    <main class="main">
+
+        <header class="topbar">
+            <input type="search" id="searchInput" placeholder="Search...">
+            <span>🔔 &nbsp; 👤 User</span>
+        </header>
+
+        <section class="page-heading">
+            <div>
+                <h2>Budget & Expenses</h2>
+                <p>Track your spending and stay on budget</p>
+            </div>
+            <button id="createBudgetBtn">+ Create Budget</button>
+        </section>
+
+        <section class="budget-summary">
+
+            <div class="panel">
+                <p>Monthly Budget</p>
+                <h3 id="budgetAmount">₹20,000</h3>
+
+                <div class="progress">
+                    <div id="spentProgress"></div>
+                </div>
+
+                <div class="progress-info">
+                    <span id="spentText">₹12,500 spent</span>
+                    <span id="spentPercent">62%</span>
+                </div>
+            </div>
+
+            <div class="panel">
+                <p>Remaining</p>
+                <h3 class="green" id="remainingAmount">₹7,500</h3>
+
+                <div class="progress">
+                    <div id="remainingProgress"></div>
+                </div>
+
+                <div class="progress-info">
+                    <span id="remainingPercent">38% of budget left</span>
+                    <span id="budgetMessage"></span>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="charts-grid">
+
+            <div class="panel">
+                <h3>Expense Breakdown</h3>
+
+                <div class="breakdown">
+                    <div class="donut" id="expenseDonut">
+                        <div class="donut-hole">
+                            <strong id="donutTotal">₹12,500</strong>
+                            <small>Total Spent</small>
+                        </div>
+                    </div>
+
+                    <div id="categoryLegend" class="legend"></div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <h3>Monthly Trend</h3>
+                <div class="chart-area" id="chartBars"></div>
+            </div>
+
+        </section>
+
+        <section class="panel expenses-panel">
+
+            <div class="section-heading">
+                <div>
+                    <h3>Recent Expenses</h3>
+                    <p>Manage your monthly spending</p>
+                </div>
+
+                <button id="addExpenseBtn">+ Add Expense</button>
+            </div>
+
+            <label>
+                Category:
+                <select id="categoryFilter">
+                    <option value="All">All Categories</option>
+                    <option>Food</option>
+                    <option>Transport</option>
+                    <option>Shopping</option>
+                    <option>Bills</option>
+                    <option>Entertainment</option>
+                    <option>Others</option>
+                </select>
+            </label>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Expense</th>
+                            <th>Category</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="expenseTableBody"></tbody>
+                </table>
+
+                <p id="emptyMessage" hidden>No expenses found.</p>
+            </div>
+
+        </section>
+    </main>
+</div>
+
+<!-- Budget Modal -->
+<div class="modal-backdrop" id="budgetModal" hidden>
+    <div class="modal">
+        <h3>Create Monthly Budget</h3>
+
+        <form id="budgetForm">
+            <label>Budget Amount
+                <input type="number" id="budgetInput" min="1" required>
+            </label>
+
+            <p id="budgetError" class="error"></p>
+
+            <button type="button" data-close="budgetModal">Cancel</button>
+            <button type="submit">Save Budget</button>
+        </form>
+    </div>
+</div>
+
+<!-- Expense Modal -->
+<div class="modal-backdrop" id="expenseModal" hidden>
+    <div class="modal">
+        <h3 id="expenseModalTitle">Add Expense</h3>
+
+        <form id="expenseForm">
+
+            <label>Expense Name
+                <input type="text" id="expenseName" required>
+            </label>
+
+            <label>Amount
+                <input type="number" id="expenseAmount" min="1" required>
+            </label>
+
+            <label>Category
+                <select id="expenseCategory">
+                    <option>Food</option>
+                    <option>Transport</option>
+                    <option>Shopping</option>
+                    <option>Bills</option>
+                    <option>Entertainment</option>
+                    <option>Others</option>
+                </select>
+            </label>
+
+            <label>Date
+                <input type="date" id="expenseDate" required>
+            </label>
+
+            <p id="expenseError" class="error"></p>
+
+            <button type="button" data-close="expenseModal">Cancel</button>
+            <button type="submit">Save Expense</button>
+
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
+
+
+
