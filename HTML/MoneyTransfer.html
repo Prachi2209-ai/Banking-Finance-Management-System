@@ -100,38 +100,74 @@
       </div>
 
       <div class="form-card">
-        <form>
+        <form id="transferForm">
           <div class="form-group">
-            <label class="form-label">Select Account</label>
-            <select class="form-control">
-              <option>Savings Account (•••• 1234) - ₹85,240.00</option>
-              <option>Current Account (•••• 5678) - ₹39,260.00</option>
-            </select>
-          </div>
+  <label class="form-label">Select Account</label>
+
+  <select class="form-control" id="accountSelect">
+    <option value="savings">Savings Account (•••• 1234)</option>
+    <option value="current">Current Account (•••• 5678)</option>
+  </select>
+
+  <p id="balanceDisplay" style="margin-top: 8px; font-size: 13px;">
+    Available Balance: ₹85,240.00
+  </p>
+</div>
 
           <div class="form-group">
-            <label class="form-label">Recipient UPI ID / Account Number</label>
-            <input type="text" class="form-control" placeholder="e.g. user@upi or 1234567890">
-          </div>
+  <label class="form-label">Recipient UPI ID / Account Number</label>
+
+  <input
+    type="text"
+    class="form-control"
+    id="recipient"
+    placeholder="e.g. user@upi or 1234567890"
+  >
+</div>
 
           <div class="form-group">
-            <label class="form-label">Amount (₹)</label>
-            <input type="number" class="form-control" placeholder="Enter amount">
-          </div>
+  <label class="form-label">Amount (₹)</label>
+
+  <input
+    type="number"
+    class="form-control"
+    id="amount"
+    placeholder="Enter amount"
+  >
+</div>
 
           <div class="form-group">
-            <label class="form-label">Note / Remark (Optional)</label>
-            <input type="text" class="form-control" placeholder="What is this for?">
-          </div>
+  <label class="form-label">Note / Remark (Optional)</label>
+
+  <input
+    type="text"
+    class="form-control"
+    id="note"
+    placeholder="What is this for?"
+  >
+</div>
 
           <button type="submit" class="btn-submit">Transfer Now</button>
+          <div id="message"></div>
         </form>
       </div>
+      <div class="form-card" style="margin-top: 25px;">
+
+  <h3>Recent Transfers</h3>
+
+  <div id="transactionList">
+    <p>No transactions yet.</p>
+  </div>
+
+</div>
     </main>
   </div>
 
   <script>
-    lucide.createIcons();
-  </script>
+  lucide.createIcons();
+</script>
+
+<script src="../JS/MoneyTransfer.js"></script>
+
 </body>
 </html>
