@@ -27,7 +27,7 @@
 
         <div class="top-right">
 
-            <span>🔔</span>
+            <!-- <span>🔔</span> -->
 
             <div class="user">
                 <div class="user-image">U</div>
@@ -52,142 +52,120 @@
     <div class="settings-box">
 
 
-        <div class="settings-menu">
-
-            <div class="setting-option selected">
-                General
-            </div>
-
-            <div class="setting-option">
-                Notifications
-            </div>
-
-            <div class="setting-option">
-                Security
-            </div>
-
-            <div class="setting-option">
-                Language
-            </div>
-
-        </div>
-
+        <nav class="settings-menu" aria-label="Settings sections">
+            <button class="setting-option selected" type="button" aria-pressed="true" aria-controls="general-panel">General</button>
+            <button class="setting-option" type="button" aria-pressed="false" aria-controls="notifications-panel">Notifications</button>
+            <button class="setting-option" type="button" aria-pressed="false" aria-controls="security-panel">Security</button>
+            <button class="setting-option" type="button" aria-pressed="false" aria-controls="language-panel">Language</button>
+        </nav>
 
         <div class="settings-content">
-
-            <h2>General Settings</h2>
-
-            <p class="section-text">
-                Manage your basic account preferences.
-            </p>
-
-
-            <div class="row g-3">
-
-                <div class="col-md-6">
-
-                    <label>Language</label>
-
-                    <select>
-                        <option>English</option>
-                        <option>Hindi</option>
-                    </select>
-
+            <section id="general-panel" class="settings-panel">
+                <h2>General Settings</h2>
+                <p class="section-text">Manage your currency and appearance preferences.</p>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="settings-currency">Currency</label>
+                        <select id="settings-currency" name="currency">
+                            <option value="INR">Indian Rupee (₹)</option>
+                            <option value="USD">US Dollar ($)</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="settings-theme">Theme</label>
+                        <select id="settings-theme" name="theme">
+                            <option value="light">Light</option>
+                            <option value="dark">Dark</option>
+                        </select>
+                    </div>
                 </div>
+            </section>
 
-
-                <div class="col-md-6">
-
-                    <label>Currency</label>
-
-                    <select>
-                        <option>Indian Rupee (₹)</option>
-                        <option>US Dollar ($)</option>
-                    </select>
-
-                </div>
-
-
-                <div class="col-md-6">
-
-                    <label>Theme</label>
-
-                    <select>
-                        <option>Light</option>
-                        <option>Dark</option>
-                    </select>
-
-                </div>
-
-
-                <div class="col-md-6">
-
-                    <label>Date Format</label>
-
-                    <select>
-                        <option>DD/MM/YYYY</option>
-                        <option>MM/DD/YYYY</option>
-                    </select>
-
-                </div>
-
-            </div>
-
-
-            <div class="notification-section">
-
+            <section id="notifications-panel" class="settings-panel" hidden>
                 <h2>Notifications</h2>
-
-
-                <div class="notification-item">
-
-                    <div>
-                        <strong>Email Notifications</strong>
-                        <p>Receive account updates through email.</p>
+                <p class="section-text">Choose which account updates you want to receive.</p>
+                <div class="notification-section">
+                    <div class="notification-item">
+                        <div>
+                            <strong>Email Notifications</strong>
+                            <p>Receive account updates through email.</p>
+                        </div>
+                        <label class="switch" for="settings-email-notifications">
+                            <input id="settings-email-notifications" name="emailNotifications" type="checkbox" checked>
+                            <span></span>
+                        </label>
                     </div>
+                    <div class="notification-item">
+                        <div>
+                            <strong>SMS Notifications</strong>
+                            <p>Receive important updates through SMS.</p>
+                        </div>
+                        <label class="switch" for="settings-sms-notifications">
+                            <input id="settings-sms-notifications" name="smsNotifications" type="checkbox" checked>
+                            <span></span>
+                        </label>
+                    </div>
+                    <div class="notification-item">
+                        <div>
+                            <strong>Security Alerts</strong>
+                            <p>Receive alerts about account security.</p>
+                        </div>
+                        <label class="switch" for="settings-security-alerts">
+                            <input id="settings-security-alerts" name="securityAlerts" type="checkbox" checked>
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+            </section>
 
-                    <label class="switch">
-                        <input type="checkbox" checked>
+            <section id="security-panel" class="settings-panel" hidden>
+                <h2>Security</h2>
+                <p class="section-text">Manage extra protections for your account.</p>
+                <div class="notification-item">
+                    <div>
+                        <strong>Two-Factor Authentication</strong>
+                        <p>Require an extra verification step when signing in.</p>
+                    </div>
+                    <label class="switch" for="settings-two-factor">
+                        <input id="settings-two-factor" name="twoFactor" type="checkbox">
                         <span></span>
                     </label>
-
                 </div>
-
-
                 <div class="notification-item">
-
                     <div>
-                        <strong>SMS Notifications</strong>
-                        <p>Receive important updates through SMS.</p>
+                        <strong>New Sign-In Alerts</strong>
+                        <p>Get notified when your account is accessed on a new device.</p>
                     </div>
-
-                    <label class="switch">
-                        <input type="checkbox" checked>
+                    <label class="switch" for="settings-signin-alerts">
+                        <input id="settings-signin-alerts" name="signInAlerts" type="checkbox" checked>
                         <span></span>
                     </label>
-
                 </div>
+            </section>
 
-
-                <div class="notification-item">
-
-                    <div>
-                        <strong>Security Alerts</strong>
-                        <p>Receive alerts about account security.</p>
+            <section id="language-panel" class="settings-panel" hidden>
+                <h2>Language &amp; Region</h2>
+                <p class="section-text">Choose the language and date format used in your account.</p>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label for="settings-language">Language</label>
+                        <select id="settings-language" name="language">
+                            <option value="English">English</option>
+                            <option value="Hindi">Hindi</option>
+                        </select>
                     </div>
-
-                    <label class="switch">
-                        <input type="checkbox" checked>
-                        <span></span>
-                    </label>
-
+                    <div class="col-md-6">
+                        <label for="settings-date-format">Date Format</label>
+                        <select id="settings-date-format" name="dateFormat">
+                            <option value="DD/MM/YYYY">DD/MM/YYYY</option>
+                            <option value="MM/DD/YYYY">MM/DD/YYYY</option>
+                        </select>
+                    </div>
                 </div>
-
-            </div>
-
-
+            </section>
             <div class="save">
-                <button>Save Changes</button>
+                <button id="save-settings" type="button">Save Changes</button>
+                <p class="save-status" aria-live="polite"></p>
             </div>
 
         </div>
