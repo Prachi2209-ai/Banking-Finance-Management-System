@@ -1,256 +1,311 @@
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+}
+
+:root {
+    --navy: #0d2949;
+    --blue: #2169e8;
+    --page-bg: #f3f6fc;
+    --muted: #64748b;
+    --border: #e5eaf2;
 }
 
 body {
-    background-color: #f4f7fc;
-    color: #1a2238;
-}
-
-/* ================= LAYOUT ================= */
-
-.main-container {
-    display: flex;
-    min-height: 100vh;
-}
-
-/* ================= SIDEBAR ================= */
-
-.sidebar {
-    width: 283px;
-    min-height: 100vh;
-    background-color: #0b2545;
-    color: white;
-    padding: 25px 20px;
-    display: flex;
-    flex-direction: column;
-}
-
-/* FinEdge Logo */
-
-.logo {
-    color: white;
-    font-size: 32px;
-    margin-bottom: 28px;
-    font-weight: 600;
-}
-
-/* Navigation */
-
-.nav-links {
-    list-style: none;
-    flex-grow: 1;
-}
-
-.nav-links li {
-    margin-bottom: 3px;
-}
-
-/* Section Titles */
-
-.nav-links .nav-section {
-    color: #9fb5d1;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #10233f;
+    background: #eef2f7;
     font-size: 13px;
-    font-weight: 600;
-    margin-top: 22px;
-    margin-bottom: 8px;
 }
 
-/* Navigation Links */
-
-.nav-links a {
-    color: #dce7f5;
-    text-decoration: none;
-    display: block;
-    padding: 10px 14px;
-    border-radius: 8px;
-    font-size: 14px;
-    margin-bottom: 2px;
+button,
+input,
+select {
+    font: inherit;
 }
 
-/* Active Page */
-
-.nav-links a.active {
-    background-color: #1e6fd9;
-    color: white;
-}
-
-/* Hover */
-
-.nav-links a:hover {
-    background-color: #163b68;
-    color: white;
-}
-
-/* Logout */
-
-.logout-btn {
-    margin-top: auto;
-}
-
-.logout-btn a {
-    color: #ff8b8b;
-    text-decoration: none;
-    display: block;
-    padding: 10px 14px;
-    font-size: 14px;
-}
-
-.logout-btn a:hover {
-    color: white;
-}
-
-
-/* ================= MAIN CONTENT ================= */
-
-.content-area {
-    flex: 1;
-    padding: 20px 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-
-/* ================= TOP BAR ================= */
-
-.top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.search-bar {
-    padding: 12px 16px;
-    width: 250px;
-    border: 1px solid #d7deea;
-    border-radius: 8px;
-    outline: none;
-    background-color: white;
-    font-size: 14px;
-}
-
-.search-bar:focus {
-    border-color: #1e6fd9;
-}
-
-.user-info {
-    font-size: 14px;
-    font-weight: bold;
-}
-
-
-/* ================= HEADER ================= */
-
-.header-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header-section h2 {
-    font-size: 24px;
-    color: #1a2238;
-}
-
-.header-section p {
-    font-size: 14px;
-    color: #6b7280;
-    margin-top: 3px;
-}
-
-.add-btn {
-    background-color: #1e6fd9;
-    color: white;
-    border: none;
-    padding: 11px 18px;
-    border-radius: 7px;
-    font-weight: bold;
+button {
     cursor: pointer;
 }
 
-.add-btn:hover {
-    background-color: #155bb5;
+.app {
+    display: flex;
+    min-height: 100vh;
+    margin: 4px;
+    overflow: hidden;
+    border: 1px solid #d8dee8;
+    border-radius: 10px;
+    background: var(--page-bg);
 }
 
-
-/* ================= CARD ================= */
-
-.card {
-    background-color: white;
-    border-radius: 16px;
-    padding: 25px;
-    border: none;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+.sidebar {
+    width: 212px;
+    flex: 0 0 212px;
+    background: var(--navy);
+    color: #fff;
+    padding: 18px 15px;
+    display: flex;
+    flex-direction: column;
 }
 
+.logo {
+    font-size: 24px;
+    line-height: 1;
+    margin: 3px 0 25px;
+    font-weight: 700;
+}
 
-/* ================= GOALS GRID ================= */
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.sidebar a {
+    display: block;
+    padding: 9px 11px;
+    color: #f5f8ff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 11px;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    background: #2670dc;
+}
+
+.nav-heading {
+    margin: 16px 0 4px;
+    color: #d7e4f8;
+    font-size: 10px;
+}
+
+.logout {
+    color: #ff7777 !important;
+    margin-top: auto;
+    padding-top: 30px !important;
+}
+
+.main {
+    flex: 1;
+    min-width: 0;
+    padding: 15px 22px 28px;
+    background: var(--page-bg);
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+#searchInput {
+    width: 187px;
+    max-width: 100%;
+    padding: 9px 12px;
+    border: 1px solid #cfd9e8;
+    border-radius: 7px;
+    background: #fff;
+    outline: none;
+    font-size: 11px;
+}
+
+#searchInput:focus,
+.form-panel input:focus,
+.form-panel select:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 2px #2169e81c;
+}
+
+.user-area {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.page-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 0 0 15px;
+}
+
+.page-heading h2 {
+    margin: 0 0 4px;
+    font-size: 18px;
+}
+
+.page-heading p {
+    margin: 0;
+    color: #50617a;
+    font-size: 11px;
+}
+
+.storage-message {
+    margin: -4px 0 12px;
+    padding: 9px 12px;
+    border: 1px solid #f1d29a;
+    border-radius: 6px;
+    background: #fff8e8;
+    color: #805500;
+    font-size: 11px;
+}
+
+.primary-btn {
+    border: 0;
+    border-radius: 6px;
+    padding: 9px 14px;
+    color: white;
+    background: var(--blue);
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.primary-btn:hover {
+    background: #1557c7;
+}
+
+.form-panel {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 4px 14px #10233f0b;
+}
+
+.form-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.form-heading h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.icon-btn {
+    border: 0;
+    background: transparent;
+    color: #5c6b80;
+    font-size: 16px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.form-grid label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-weight: 600;
+    color: #33445d;
+}
+
+.form-grid input,
+.form-grid select {
+    width: 100%;
+    min-width: 0;
+    padding: 10px;
+    border: 1px solid #d6deea;
+    border-radius: 6px;
+    background: white;
+    color: #172b49;
+    outline: none;
+}
+
+.form-error {
+    color: #c62828;
+    min-height: 0;
+    margin: 8px 0 0;
+}
+
+.form-error:empty {
+    display: none;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.secondary-btn {
+    padding: 9px 14px;
+    border: 1px solid #d4dce8;
+    border-radius: 6px;
+    background: #fff;
+    color: #24364f;
+}
 
 .goals-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
 }
 
 .goal-card {
-    width: calc(50% - 10px);
     display: flex;
-    gap: 15px;
+    gap: 12px;
     align-items: center;
+    min-width: 0;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px #10233f0d;
 }
-
-
-/* ================= GOAL ICON ================= */
 
 .goal-icon {
-    width: 58px;
-    height: 58px;
-    min-width: 58px;
-    background-color: #eef6ff;
-    border-radius: 12px;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    font-size: 24px;
+    width: 44px;
+    height: 44px;
+    flex: 0 0 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 11px;
+    background: #edf4ff;
+    font-size: 21px;
 }
 
-
-/* ================= GOAL DETAILS ================= */
-
-.goal-details {
+.goal-content {
     flex: 1;
     min-width: 0;
 }
 
-
-/* ================= GOAL HEADER ================= */
-
-.goal-header {
+.goal-top,
+.goal-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
+}
+
+.goal-top {
     margin-bottom: 10px;
 }
 
-.goal-header h4 {
-    font-size: 17px;
-    color: #1a2238;
+.goal-name {
+    margin: 0;
+    font-size: 14px;
+    overflow-wrap: anywhere;
 }
 
 .goal-target {
-    font-size: 15px;
-    font-weight: bold;
-    color: #1a2238;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
 }
-
-
-/* ================= PROGRESS ROW ================= */
 
 .progress-row {
     display: flex;
@@ -258,155 +313,147 @@ body {
     gap: 10px;
 }
 
-.progress-bg {
-    flex: 1;
-    height: 8px;
-    background-color: #e5e7eb;
+.progress-track {
+    height: 6px;
+    width: 100%;
+    background: #e1e6ee;
     border-radius: 10px;
     overflow: hidden;
 }
 
-.progress-fill {
+.progress-bar {
     height: 100%;
     border-radius: 10px;
+    background: var(--blue);
+    transition: width 0.3s ease;
 }
 
-/* Laptop */
-
-.bar-1 {
-    width: 67%;
-    background-color: #1e6fd9;
-}
-
-/* Europe Trip */
-
-.bar-2 {
-    width: 33%;
-    background-color: #20b8b0;
+.goal-card:nth-child(even) .progress-bar {
+    background: #13b8ae;
 }
 
 .percent-text {
-    font-size: 13px;
-    font-weight: 600;
-    color: #1a2238;
     min-width: 32px;
+    color: #33445d;
+    font-size: 10px;
+    font-weight: 600;
+    text-align: right;
 }
 
-
-/* ================= GOAL FOOTER ================= */
-
-.goal-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.goal-bottom {
     margin-top: 8px;
-    font-size: 12px;
+    font-size: 9px;
+    color: var(--muted);
 }
 
-.saved-amount {
-    color: #16a6a0;
-    font-weight: bold;
+.goal-bottom p {
+    margin: 0;
+}
+
+.saved-label {
+    color: #009b9b;
 }
 
 .target-date {
-    color: #6b7280;
+    text-align: right;
 }
 
+.goal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+    margin-top: 10px;
+}
 
-/* ================= RESPONSIVE ================= */
+.small-btn {
+    border: 1px solid #dbe3ee;
+    border-radius: 5px;
+    padding: 5px 8px;
+    background: #fff;
+    color: #33445d;
+    font-size: 10px;
+}
 
-@media (max-width: 1000px) {
+.goal-actions .small-btn:not(.delete-btn) {
+    background: #edf4ff;
+    color: #2169e8;
+}
 
+.delete-btn {
+    color: #c62828;
+}
+
+.empty-message {
+    padding: 24px;
+    text-align: center;
+    color: var(--muted);
+    background: #fff;
+    border-radius: 10px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 760px) {
     .sidebar {
-        width: 240px;
+        width: 155px;
+        flex-basis: 155px;
+        padding: 16px 9px;
     }
 
-    .goal-card {
-        width: 100%;
+    .main {
+        padding: 14px;
+    }
+
+    .goals-grid {
+        grid-template-columns: 1fr;
     }
 }
 
-
-@media (max-width: 700px) {
-
-    .sidebar {
-        width: 210px;
-        padding: 20px 15px;
-    }
-
-    .content-area {
-        padding: 15px;
-    }
-
-    .search-bar {
-        width: 200px;
-    }
-
-    .header-section {
-        gap: 15px;
-    }
-
-    .goal-card {
-        width: 100%;
-    }
-}
-
-
-@media (max-width: 550px) {
-
-    .main-container {
-        flex-direction: column;
+@media (max-width: 520px) {
+    .app {
+        margin: 0;
+        border-radius: 0;
     }
 
     .sidebar {
-        width: 100%;
-        min-height: auto;
-        position: relative;
+        width: 115px;
+        flex-basis: 115px;
+        padding: 14px 7px;
     }
 
-    .nav-links {
-        flex-grow: 0;
+    .logo {
+        font-size: 19px;
     }
 
-    .logout-btn {
-        margin-top: 15px;
+    .sidebar a {
+        padding: 8px 5px;
+        font-size: 10px;
     }
 
-    .content-area {
-        width: 100%;
+    .main {
+        padding: 12px 10px;
     }
 
-    .top-bar {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-    }
-
-    .search-bar {
-        width: 100%;
-    }
-
-    .header-section {
-        flex-direction: column;
+    .topbar {
         align-items: flex-start;
     }
 
-    .add-btn {
-        width: 100%;
+    .user-area {
+        gap: 8px;
+        font-size: 10px;
+    }
+
+    .page-heading h2 {
+        font-size: 16px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
     }
 
     .goal-card {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .goal-details {
-        width: 100%;
-    }
-
-    .goal-footer {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
+        padding: 13px;
     }
 }

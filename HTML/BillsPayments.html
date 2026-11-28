@@ -1,103 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Bills & Payments | FinEdge</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinEdge - Bills &amp; Payments</title>
     <link rel="stylesheet" href="../CSS/bills.css">
-    <link rel="stylesheet" href="../CSS/navigation.css">
+    <link rel="stylesheet" href="../CSS/navigation.css?v=2">
+    <script src="../JAVASCRIPT/userData.js" defer></script>
+    <script src="../JAVASCRIPT/common.js" defer></script>
+    <script src="../JAVASCRIPT/bills.js" defer></script>
 </head>
-
 <body>
+    <div class="container">
+        <div id="sidebar-container"></div>
 
-<div id="sidebar-container"></div>
+        <main class="main-content">
+            <div class="topbar">
+                <input type="search" id="searchInput" aria-label="Search bills"
+                    placeholder="Search anything...">
+                <span class="account-notification" aria-label="Notifications">🔔</span>
+                <div class="account-identity" aria-label="Signed-in user">
+                    <div class="account-avatar" aria-hidden="true">U</div>
+                    <div class="account-identity-details">
+                        <span class="account-identity-name">User Name</span>
+                        <span class="account-identity-role">Account Holder</span>
+                    </div>
+                </div>
+            </div>
 
-<div class="main">
+            <header class="heading">
+                <div>
+                    <h1>Bills &amp; Payments</h1>
+                    <p>Pay your bills and manage due dates</p>
+                </div>
+                <button class="add-btn" id="openAddBill" type="button">+ Add Bill</button>
+            </header>
 
-    <div class="top-bar">
-        <input type="text" placeholder="Search anything..." class="search-bar">
+            <p id="storageMessage" class="storage-message" role="status" aria-live="polite" hidden></p>
 
-        <!-- User and Notification Area -->
-        <div class="user-profile">
-            <span class="bell-icon">🔔</span>
-            <span class="user-name">👤 User</span>
+            <section class="summary" aria-label="Bill summary">
+                <div class="summary-card">
+                    <p>Pending Bills</p>
+                    <h2 id="pendingBills">0</h2>
+                </div>
+                <div class="summary-card">
+                    <p>Pending Amount</p>
+                    <h2 id="pendingAmount">₹0</h2>
+                </div>
+                <div class="summary-card">
+                    <p>Total Paid</p>
+                    <h2 id="totalPaid">₹0</h2>
+                </div>
+            </section>
+
+            <section class="bill-section" aria-label="Bills">
+                <div class="tabs" role="tablist" aria-label="Bill views">
+                    <button class="tab active" id="upcomingTab" type="button"
+                        role="tab" aria-selected="true">Upcoming Bills</button>
+                    <button class="tab" id="historyTab" type="button"
+                        role="tab" aria-selected="false">Payment History</button>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Bill</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Due Date</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="billTable"></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div class="modal" id="billModal" hidden>
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <h2 id="modalTitle">Add New Bill</h2>
+            <form id="billForm">
+                <label for="billName">Bill Name</label>
+                <input type="text" id="billName" placeholder="Enter bill name" required>
+
+                <label for="billAmount">Amount</label>
+                <input type="number" id="billAmount" placeholder="Enter amount"
+                    min="1" step="0.01" required>
+
+                <label for="billDate">Due Date</label>
+                <input type="date" id="billDate" required>
+
+                <div class="modal-buttons">
+                    <button type="submit" class="add-btn">Save Bill</button>
+                    <button type="button" class="cancel-btn" id="cancelBill">Cancel</button>
+                </div>
+            </form>
         </div>
     </div>
 
+    <div class="modal" id="paymentModal" hidden>
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="paymentModalTitle">
+            <h2 id="paymentModalTitle">Pay Bill</h2>
+            <p id="paymentBillSummary"></p>
+            <form id="paymentForm">
+                <label for="paymentAccount">Pay from account</label>
+                <select id="paymentAccount" required></select>
+                <p id="paymentBalance" class="payment-balance" aria-live="polite"></p>
+                <p id="paymentError" class="payment-error" role="alert" hidden></p>
 
-    <div class="heading">
-        <div>
-            <h2>Bills & Payments</h2>
-            <p>Pay your bills and manage due dates</p>
+                <div class="modal-buttons">
+                    <button type="submit" class="add-btn" id="confirmPayment">Pay Bill</button>
+                    <button type="button" class="cancel-btn" id="cancelPayment">Cancel</button>
+                </div>
+            </form>
         </div>
-
-        <button>+ Add Bill</button>
     </div>
-
-
-    <div class="card">
-
-        <div class="tabs">
-            <button class="selected">Upcoming Bills</button>
-            <button>Payment History</button>
-        </div>
-
-
-        <table>
-
-            <tr>
-                <th>Bill</th>
-                <th>Amount</th>
-                <th>Due Date</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-
-            <tr>
-                <td>Electricity</td>
-                <td><b>₹1,200</b></td>
-                <td>Apr 20, 2026</td>
-                <td><span class="due">Due Soon</span></td>
-                <td><button class="pay">Pay</button></td>
-            </tr>
-
-            <tr>
-                <td>Internet</td>
-                <td><b>₹800</b></td>
-                <td>Apr 22, 2026</td>
-                <td><span class="upcoming">Upcoming</span></td>
-                <td><button class="pay">Pay</button></td>
-            </tr>
-
-            <tr>
-                <td>Mobile Recharge</td>
-                <td><b>₹499</b></td>
-                <td>Apr 25, 2026</td>
-                <td><span class="upcoming">Upcoming</span></td>
-                <td><button class="pay">Pay</button></td>
-            </tr>
-
-            <tr>
-                <td>Rent</td>
-                <td><b>₹12,000</b></td>
-                <td>May 1, 2026</td>
-                <td><span class="upcoming">Upcoming</span></td>
-                <td><button class="pay">Pay</button></td>
-            </tr>
-
-            <tr>
-                <td>Water</td>
-                <td><b>₹600</b></td>
-                <td>May 5, 2026</td>
-                <td><span class="upcoming">Upcoming</span></td>
-                <td><button class="pay">Pay</button></td>
-            </tr>
-
-        </table>
-
-    </div>
-
-</div>
-<script src="../JAVASCRIPT/bills.js"></script>
-<script src="../JAVASCRIPT/common.js"></script>
-
 </body>
 </html>

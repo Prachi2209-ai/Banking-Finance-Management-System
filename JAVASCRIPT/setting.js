@@ -1,4 +1,3 @@
-const settingsStorageKey = "finedgeSettings";
 const settingsFields = document.querySelectorAll(".settings-panel [name]");
 const settingsStatus = document.querySelector(".save-status");
 const themeSelect = document.querySelector('[name="theme"]');
@@ -24,9 +23,13 @@ function applyTheme() {
     document.body.classList.toggle("dark-theme", themeSelect.value === "dark");
 }
 
-function loadSettings() {
+async function loadSettings() {
     try {
-        const savedSettings = JSON.parse(localStorage.getItem(settingsStorageKey) || "{}");
+        const data = await window.FinEdgeUserData.load();
+        const savedSettings = data.settings;
+        if (!savedSettings || typeof savedSettings !== "object" || Array.isArray(savedSettings)) {
+            throw new TypeError("Saved settings have an invalid structure.");
+        }
 
         settingsFields.forEach((field) => {
             if (Object.prototype.hasOwnProperty.call(savedSettings, field.name)) {
@@ -41,7 +44,7 @@ function loadSettings() {
         applyTheme();
     } catch (error) {
         console.error("Could not load saved settings.", error);
-        showSettingsMessage("Could not load saved settings.", true);
+        showSettingsMessage("Could not load settings from the server.", true);
     }
 }
 
@@ -51,7 +54,7 @@ document.querySelectorAll(".setting-option").forEach((button) => {
 
 themeSelect.addEventListener("change", applyTheme);
 
-document.querySelector("#save-settings").addEventListener("click", () => {
+document.querySelector("#save-settings").addEventListener("click", async () => {
     const savedSettings = {};
 
     settingsFields.forEach((field) => {
@@ -59,7 +62,7 @@ document.querySelector("#save-settings").addEventListener("click", () => {
     });
 
     try {
-        localStorage.setItem(settingsStorageKey, JSON.stringify(savedSettings));
+        await window.FinEdgeUserData.save({ settings: savedSettings });
         showSettingsMessage("Settings saved.", false);
     } catch (error) {
         console.error("Could not save settings.", error);

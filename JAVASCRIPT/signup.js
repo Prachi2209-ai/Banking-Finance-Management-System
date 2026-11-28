@@ -18,20 +18,28 @@ form.addEventListener("submit", async (event) => {
     password: password
   };
 
-  const response = await fetch("http://localhost:3000/users", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(user)
-  });
+  let savedUser;
+  try {
+    const response = await fetch("http://localhost:3000/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(user)
+    });
 
-  if (!response.ok) {
-    alert("Could not create account.");
+    if (!response.ok) {
+      throw new Error(`Account service returned ${response.status}.`);
+    }
+
+    savedUser = await response.json();
+    await window.FinEdgeUserData.initialize(savedUser.id);
+  } catch (error) {
+    console.error("Could not create and initialize the account.", error);
+    alert("Could not create your account or initialize its data. Please try again.");
     return;
   }
 
-  const savedUser = await response.json();
   localStorage.setItem("finedgeUserId", savedUser.id);
   localStorage.setItem("finedgeUserName", savedUser.fullname);
   localStorage.setItem("finedgeUserEmail", savedUser.email);

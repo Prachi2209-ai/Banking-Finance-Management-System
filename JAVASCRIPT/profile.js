@@ -1,4 +1,3 @@
-const profileStorageKey = "finedgeProfile";
 const profilePages = document.querySelectorAll(".profile-box .page");
 const photoInput = document.querySelector("#profile-photo-input");
 const photoStatus = document.querySelector(".photo-status");
@@ -8,41 +7,20 @@ let currentUserId = localStorage.getItem("finedgeUserId");
 let currentUser = null;
 
 async function getCurrentUser() {
-    const name = localStorage.getItem("finedgeUserName");
-    const email = localStorage.getItem("finedgeUserEmail");
-
-    currentUser = null;
-    if (email) {
-        const response = await fetch(`${profileApiUrl}?email=${encodeURIComponent(email)}`);
-        if (!response.ok) {
-            throw new Error(`Could not find account (${response.status}).`);
-        }
-        const users = await response.json();
-        currentUser = users[0] || null;
+    if (!currentUserId) {
+        window.location.replace("login.html");
+        throw new Error("Sign in again to view your profile.");
     }
 
-    if (!currentUser) {
-        if (currentUserId) {
-            const response = await fetch(`${profileApiUrl}/${encodeURIComponent(currentUserId)}`);
-            if (response.ok) {
-                currentUser = await response.json();
-            }
-        }
-
-        if (!currentUser && name) {
-            const response = await fetch(profileApiUrl);
-            if (!response.ok) {
-                throw new Error(`Could not load accounts (${response.status}).`);
-            }
-            const users = await response.json();
-            currentUser = users.find((user) => user.fullname === name) || null;
-        }
+    const response = await fetch(`${profileApiUrl}/${encodeURIComponent(currentUserId)}`);
+    if (!response.ok) {
+        throw new Error(`Could not load your profile (${response.status}).`);
     }
-
-    if (currentUser) {
-        currentUserId = currentUser.id;
-        localStorage.setItem("finedgeUserId", currentUser.id);
+    currentUser = await response.json();
+    if (String(currentUser.id) !== String(currentUserId)) {
+        throw new Error("The profile returned by the server does not match this user.");
     }
+    return currentUser;
 }
 
 async function saveCurrentUser(profile) {
@@ -75,7 +53,7 @@ function showProfileMessage(page, message, isError) {
 function updateProfileName() {
     const firstName = document.querySelector('[name="firstName"]').value.trim();
     const lastName = document.querySelector('[name="lastName"]').value.trim();
-    const savedName = localStorage.getItem("finedgeUserName");
+    const savedName = currentUser ? currentUser.fullname : "";
     const displayName = [firstName, lastName].filter(Boolean).join(" ") || savedName || "Guest User";
     const initials = displayName
         .split(/\s+/)
@@ -146,10 +124,7 @@ async function compressProfilePhoto(dataUrl) {
 async function loadProfile() {
     try {
         await getCurrentUser();
-        const localProfile = JSON.parse(localStorage.getItem(profileStorageKey) || "{}");
-        const savedProfile = currentUser
-            ? { ...localProfile, ...(currentUser.profile || {}) }
-            : localProfile;
+        const savedProfile = currentUser.profile || {};
 
         document.querySelectorAll(".profile-box .page [name]").forEach((field) => {
             if (Object.prototype.hasOwnProperty.call(savedProfile, field.name)) {
@@ -184,7 +159,7 @@ profilePages.forEach((page) => {
         }
 
         try {
-            const savedProfile = JSON.parse(localStorage.getItem(profileStorageKey) || "{}");
+            const savedProfile = { ...(currentUser.profile || {}) };
 
             page.querySelectorAll("[name]").forEach((field) => {
                 savedProfile[field.name] = field.type === "checkbox" ? field.checked : field.value;
@@ -195,11 +170,19 @@ profilePages.forEach((page) => {
                 profilePhoto = savedProfile.photo;
             }
 
-            localStorage.setItem(profileStorageKey, JSON.stringify(savedProfile));
-            await saveCurrentUser({ profile: savedProfile });
+            const profileUpdate = { profile: savedProfile };
 
             if (page.classList.contains("personal-page")) {
-                localStorage.setItem("finedgeUserName", `${firstName.value.trim()} ${lastName.value.trim()}`);
+                const displayName = `${firstName.value.trim()} ${lastName.value.trim()}`;
+                profileUpdate.fullname = displayName;
+            }
+
+            await saveCurrentUser(profileUpdate);
+            if (page.classList.contains("personal-page")) {
+                localStorage.setItem(
+                    "finedgeUserName",
+                    `${firstName.value.trim()} ${lastName.value.trim()}`
+                );
                 updateProfileName();
             }
 
@@ -243,10 +226,9 @@ photoInput.addEventListener("change", () => {
 
         try {
             const compressedPhoto = await compressProfilePhoto(reader.result);
-            const savedProfile = JSON.parse(localStorage.getItem(profileStorageKey) || "{}");
+            const savedProfile = { ...(currentUser.profile || {}) };
             savedProfile.photo = compressedPhoto;
             await saveCurrentUser({ profile: savedProfile });
-            localStorage.setItem(profileStorageKey, JSON.stringify(savedProfile));
             profilePhoto = compressedPhoto;
             updateProfileName();
             showPhotoMessage("Profile photo saved.", false);

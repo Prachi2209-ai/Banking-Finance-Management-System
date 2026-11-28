@@ -11,7 +11,7 @@
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <link rel="stylesheet" href="../CSS/Transactions.css">
-  <link rel="stylesheet" href="../CSS/navigation.css">
+  <link rel="stylesheet" href="../CSS/navigation.css?v=2">
 </head>
 <body>
 
@@ -30,12 +30,12 @@
         <button class="icon-btn" aria-label="Notifications">
           <i data-lucide="bell"></i>
         </button>
-        <div class="user-profile">
-          <div class="user-details">
-            <span class="user-name">User Name</span>
-            <span class="user-role">Student</span>
+        <div class="account-identity" aria-label="Signed-in user">
+          <div class="account-avatar" aria-hidden="true">U</div>
+          <div class="account-identity-details">
+            <span class="account-identity-name">User Name</span>
+            <span class="account-identity-role">Account Holder</span>
           </div>
-          <i data-lucide="chevron-down" class="chevron-icon"></i>
         </div>
       </div>
     </header>
@@ -51,31 +51,36 @@
       <div class="filter-bar">
         <div class="search-input-wrapper">
           <i data-lucide="search"></i>
-          <input type="text" placeholder="Search transactions...">
+          <input type="search" id="transactionSearch" placeholder="Search transactions..."
+            aria-label="Search transactions">
         </div>
 
         <div class="filter-controls">
-          <select class="custom-select">
-            <option>All Types</option>
-            <option>Income</option>
-            <option>Shopping</option>
-            <option>Food</option>
-            <option>Bills</option>
-            <option>Transfer</option>
+          <select class="custom-select" id="typeFilter" aria-label="Filter by transaction type">
+            <option value="all">All Types</option>
+            <option value="Income">Income</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Food">Food</option>
+            <option value="Bills">Bills</option>
+            <option value="Transfer">Transfer</option>
           </select>
 
-          <select class="custom-select">
-            <option>Last 3 Months</option>
-            <option>This Month</option>
-            <option>Last 6 Months</option>
+          <select class="custom-select" id="dateFilter" aria-label="Filter by date">
+            <option value="3">Last 3 Months</option>
+            <option value="thisMonth">This Month</option>
+            <option value="6">Last 6 Months</option>
+            <option value="12">Last 1 Year</option>
+            <option value="all">All Time</option>
           </select>
 
-          <button class="btn-export">
+          <button class="btn-export" type="button" id="exportBtn">
             <i data-lucide="download"></i>
             Export
           </button>
         </div>
       </div>
+
+      <p id="transactionMessage" class="transaction-message" role="status" aria-live="polite"></p>
 
       <!-- TRANSACTIONS TABLE CARD -->
       <div class="card-box">
@@ -89,43 +94,7 @@
               <th class="text-center">Status</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td class="td-date">14 Sep 2026</td>
-              <td class="td-desc">Amazon</td>
-              <td><span class="cat-badge cat-red"><span class="dot"></span> Shopping</span></td>
-              <td class="td-amount amount-debit">- ₹2,499</td>
-              <td class="text-center"><span class="status-badge">Completed</span></td>
-            </tr>
-            <tr>
-              <td class="td-date">12 Sep 2026</td>
-              <td class="td-desc">Swiggy</td>
-              <td><span class="cat-badge cat-orange"><span class="dot"></span> Food</span></td>
-              <td class="td-amount amount-debit">- ₹450</td>
-              <td class="text-center"><span class="status-badge">Completed</span></td>
-            </tr>
-            <tr>
-              <td class="td-date">10 Sep 2026</td>
-              <td class="td-desc">Electricity Bill</td>
-              <td><span class="cat-badge cat-green"><span class="dot"></span> Bills</span></td>
-              <td class="td-amount amount-debit">- ₹1,200</td>
-              <td class="text-center"><span class="status-badge">Completed</span></td>
-            </tr>
-            <tr>
-              <td class="td-date">01 Sep 2026</td>
-              <td class="td-desc">Salary Credit</td>
-              <td><span class="cat-badge cat-green"><span class="dot"></span> Income</span></td>
-              <td class="td-amount amount-credit">+ ₹32,000</td>
-              <td class="text-center"><span class="status-badge">Completed</span></td>
-            </tr>
-            <tr>
-              <td class="td-date">28 Aug 2026</td>
-              <td class="td-desc">Transfer to Priya</td>
-              <td><span class="cat-badge cat-blue"><span class="dot"></span> Transfer</span></td>
-              <td class="td-amount amount-debit">- ₹5,000</td>
-              <td class="text-center"><span class="status-badge">Completed</span></td>
-            </tr>
-          </tbody>
+          <tbody id="transactionTableBody"></tbody>
         </table>
       </div>
     </main>
@@ -134,6 +103,7 @@
   <script>
     lucide.createIcons();
   </script>
+  <script src="../JAVASCRIPT/userData.js"></script>
   <script src="../JAVASCRIPT/Transactions.js"></script>
   <script src="../JAVASCRIPT/common.js"></script>
 </body>

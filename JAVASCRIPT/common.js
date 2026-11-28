@@ -24,7 +24,12 @@ const navigationGroups = [
     }
 ];
 
-const flowPages = new Set(["dashboard.html", "budgetexpenses.html", "savingsgoals.html"]);
+const flowPages = new Set([
+    "dashboard.html",
+    "budgetexpenses.html",
+    "savingsgoals.html",
+    "billspayments.html"
+]);
 const supportedPages = new Set([
     ...flowPages,
     "accountscards.html",
@@ -88,6 +93,13 @@ function createSidebar() {
 
     const logout = createLink({ label: "Logout", href: "login.html" });
     logout.className = "logout";
+    logout.addEventListener("click", (event) => {
+        event.preventDefault();
+        window.localStorage.removeItem("finedgeUserId");
+        window.localStorage.removeItem("finedgeUserName");
+        window.localStorage.removeItem("finedgeUserEmail");
+        window.location.href = "login.html";
+    });
     sidebar.appendChild(logout);
 
     const closeButton = document.createElement("button");
@@ -143,17 +155,21 @@ const initials = nameParts
     .join("")
     .toUpperCase();
 
-document.querySelectorAll(".username, .user-name, .user-info strong, .profile-left h2")
+document.querySelectorAll(
+    ".username, .user-name, .user-info strong, .profile-left h2, .account-identity-name"
+)
     .forEach((element) => {
         element.textContent = displayName;
     });
 
-document.querySelectorAll(".user-role, .user-info small, .profile-left > p")
+document.querySelectorAll(
+    ".user-role, .user-info small, .profile-left > p, .account-identity-role"
+)
     .forEach((element) => {
         element.textContent = userRole;
     });
 
-document.querySelectorAll(".user-image, .profile-photo")
+document.querySelectorAll(".user-image, .profile-photo, .account-avatar")
     .forEach((element) => {
         element.textContent = initials;
     });

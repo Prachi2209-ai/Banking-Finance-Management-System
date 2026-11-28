@@ -1,282 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Budget & Expenses - FinEdge</title>
-
+    <title>FinEdge - Budget &amp; Expenses</title>
     <link rel="stylesheet" href="../CSS/budget.css">
-    <link rel="stylesheet" href="../CSS/navigation.css">
+    <link rel="stylesheet" href="../CSS/navigation.css?v=2">
+    <script src="../JAVASCRIPT/userData.js" defer></script>
+    <script src="../JAVASCRIPT/common.js" defer></script>
+    <script src="../JAVASCRIPT/budget.js" defer></script>
 </head>
-
 <body>
-
-    <div class="main-container">
-
+    <div class="layout">
         <div id="sidebar-container"></div>
 
-        <!-- Right Main Dashboard Content -->
-        <div class="content-area">
-
-            <!-- Top Navigation Bar -->
-            <div class="top-bar">
-
-                <input type="text"
-                    placeholder="Search..."
-                    class="search-bar">
-
-                <div class="user-info">
+        <main class="main">
+            <header class="topbar">
+                <input type="search" id="searchInput" aria-label="Search expenses" placeholder="Search...">
+                <span class="account-notification" aria-label="Notifications">🔔</span>
+                <div class="account-identity" aria-label="Signed-in user">
+                    <div class="account-avatar" aria-hidden="true">U</div>
+                    <div class="account-identity-details">
+                        <span class="account-identity-name">User Name</span>
+                        <span class="account-identity-role">Account Holder</span>
+                    </div>
                 </div>
+            </header>
 
-            </div>
-
-
-            <!-- Header Title and Add Button -->
-            <div class="header-section">
-
+            <section class="page-heading">
                 <div>
-                    <h2>Budget & Expenses</h2>
+                    <h2>Budget &amp; Expenses</h2>
                     <p>Track your spending and stay on budget</p>
                 </div>
+                <button id="createBudgetBtn" type="button">+ Create Budget</button>
+            </section>
 
-                <button class="add-btn">
-                    + Create Budget
-                </button>
+            <p id="storageMessage" class="storage-message" role="status" aria-live="polite" hidden></p>
 
-            </div>
-
-
-            <!-- Top Summary Cards -->
-            <div class="top-cards">
-
-                <!-- Card 1: Monthly Budget -->
-                <div class="card">
-
-                    <span class="card-title">
-                        Monthly Budget
-                    </span>
-
-                    <h3 class="amount">
-                        ₹20,000
-                    </h3>
-
-                    <div class="progress-container">
-                        <div class="progress-bar spent-bar"></div>
+            <section class="budget-summary" aria-label="Monthly budget summary">
+                <div class="panel">
+                    <p>Monthly Budget</p>
+                    <h3 id="budgetAmount">₹20,000</h3>
+                    <div class="progress" role="progressbar" aria-label="Budget spent"
+                        aria-valuemin="0" aria-valuemax="100">
+                        <div id="spentProgress"></div>
                     </div>
-
-                    <div class="progress-text">
-                        <span>₹12,500 spent</span>
-                        <span>62%</span>
+                    <div class="progress-info">
+                        <span id="spentText">₹12,500 spent</span>
+                        <span id="spentPercent">63%</span>
                     </div>
-
                 </div>
 
-
-                <!-- Card 2: Remaining -->
-                <div class="card">
-
-                    <span class="card-title">
-                        Remaining
-                    </span>
-
-                    <h3 class="amount green-text">
-                        ₹7,500
-                    </h3>
-
-                    <div class="progress-container">
-                        <div class="progress-bar remaining-bar"></div>
+                <div class="panel">
+                    <p>Remaining</p>
+                    <h3 class="green" id="remainingAmount">₹7,500</h3>
+                    <div class="progress" role="progressbar" aria-label="Budget remaining"
+                        aria-valuemin="0" aria-valuemax="100">
+                        <div id="remainingProgress"></div>
                     </div>
-
-                    <div class="progress-text">
-                        <span>38% of budget left</span>
+                    <div class="progress-info">
+                        <span id="remainingPercent">38% of budget left</span>
+                        <span id="budgetMessage" role="status"></span>
                     </div>
-
                 </div>
+            </section>
 
-            </div>
-
-
-            <!-- Bottom Analytics Section -->
-            <div class="analytics-section">
-
-
-                <!-- Left: Expense Breakdown -->
-                <div class="card analytics-card">
-
-                    <h4>Expense Breakdown</h4>
-
-                    <div class="chart-content">
-
-                        <!-- Simple Circle Chart Mockup -->
-                        <div class="donut-chart">
-
-                            <div class="donut-center">
-                                <strong>₹12,500</strong>
+            <section class="charts-grid">
+                <div class="panel">
+                    <h3>Expense Breakdown</h3>
+                    <div class="breakdown">
+                        <div class="donut" id="expenseDonut" role="img" aria-label="Expenses by category">
+                            <div class="donut-hole">
+                                <strong id="donutTotal">₹12,500</strong>
                                 <small>Total Spent</small>
                             </div>
-
                         </div>
-
-
-                        <!-- Category List -->
-                        <div class="legend-list">
-
-                            <div class="legend-item">
-                                <span class="dot food"></span>
-                                Food
-                                <strong>32%</strong>
-                            </div>
-
-                            <div class="legend-item">
-                                <span class="dot transport"></span>
-                                Transport
-                                <strong>15%</strong>
-                            </div>
-
-                            <div class="legend-item">
-                                <span class="dot shopping"></span>
-                                Shopping
-                                <strong>20%</strong>
-                            </div>
-
-                            <div class="legend-item">
-                                <span class="dot bills"></span>
-                                Bills
-                                <strong>18%</strong>
-                            </div>
-
-                            <div class="legend-item">
-                                <span class="dot ent"></span>
-                                Entertainment
-                                <strong>10%</strong>
-                            </div>
-
-                            <div class="legend-item">
-                                <span class="dot others"></span>
-                                Others
-                                <strong>5%</strong>
-                            </div>
-
-                        </div>
-
+                        <div id="categoryLegend" class="legend"></div>
                     </div>
-
                 </div>
 
+                <div class="panel">
+                    <h3>Monthly Trend</h3>
+                    <div class="chart-area" id="chartBars" aria-label="Monthly expense trend"></div>
+                </div>
+            </section>
 
-                <!-- Right: Monthly Trend Bar Chart -->
-                <div class="card analytics-card">
-
-                    <h4>Monthly Trend</h4>
-
-                    <div class="trend-chart">
-
-                        <div class="chart-row">
-
-                            <!-- Y-axis value labels -->
-                            <div class="y-axis">
-
-                                <span>20k</span>
-                                <span>15k</span>
-                                <span>10k</span>
-                                <span>5k</span>
-                                <span>0</span>
-
-                            </div>
-
-
-                            <!-- Plot area -->
-                            <div class="plot-area">
-
-                                <div class="grid-line"
-                                    style="bottom: 100%;">
-                                </div>
-
-                                <div class="grid-line"
-                                    style="bottom: 75%;">
-                                </div>
-
-                                <div class="grid-line"
-                                    style="bottom: 50%;">
-                                </div>
-
-                                <div class="grid-line"
-                                    style="bottom: 25%;">
-                                </div>
-
-                                <div class="grid-line"
-                                    style="bottom: 0%;">
-                                </div>
-
-
-                                <div class="bars">
-
-                                    <div class="bar-track">
-                                        <div class="bar"
-                                            style="height: 40%;">
-                                        </div>
-                                    </div>
-
-                                    <div class="bar-track">
-                                        <div class="bar"
-                                            style="height: 55%;">
-                                        </div>
-                                    </div>
-
-                                    <div class="bar-track">
-                                        <div class="bar"
-                                            style="height: 80%;">
-                                        </div>
-                                    </div>
-
-                                    <div class="bar-track">
-                                        <div class="bar"
-                                            style="height: 45%;">
-                                        </div>
-                                    </div>
-
-                                    <div class="bar-track">
-                                        <div class="bar"
-                                            style="height: 90%;">
-                                        </div>
-                                    </div>
-
-                                    <div class="bar-track">
-                                        <div class="bar"
-                                            style="height: 62%;">
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- X-axis month labels -->
-                        <div class="x-axis">
-
-                            <span>Jan</span>
-                            <span>Feb</span>
-                            <span>Mar</span>
-                            <span>Apr</span>
-                            <span>May</span>
-                            <span>Jun</span>
-
-                        </div>
-
+            <section class="panel expenses-panel">
+                <div class="section-heading">
+                    <div>
+                        <h3>Recent Expenses</h3>
+                        <p>Manage your monthly spending</p>
                     </div>
-
+                    <button id="addExpenseBtn" type="button">+ Add Expense</button>
                 </div>
 
-            </div>
+                <label class="category-filter" for="categoryFilter">
+                    Category:
+                    <select id="categoryFilter">
+                        <option value="All">All Categories</option>
+                        <option>Food</option>
+                        <option>Transport</option>
+                        <option>Shopping</option>
+                        <option>Bills</option>
+                        <option>Entertainment</option>
+                        <option>Others</option>
+                    </select>
+                </label>
 
-        </div>
-
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Expense</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="expenseTableBody"></tbody>
+                    </table>
+                    <p id="emptyMessage" class="empty-message" hidden>No expenses found.</p>
+                </div>
+            </section>
+        </main>
     </div>
-<script src="../JAVASCRIPT/budget.js"></script>
-<script src="../JAVASCRIPT/common.js"></script>
+
+    <div class="modal-backdrop" id="budgetModal" hidden>
+        <section class="modal" role="dialog" aria-modal="true" aria-labelledby="budgetModalTitle">
+            <h3 id="budgetModalTitle">Create Monthly Budget</h3>
+            <form id="budgetForm">
+                <label for="budgetInput">Budget Amount</label>
+                <input type="number" id="budgetInput" min="1" step="0.01" required>
+                <p id="budgetError" class="error" role="alert"></p>
+                <div class="modal-actions">
+                    <button type="button" data-close="budgetModal">Cancel</button>
+                    <button type="submit">Save Budget</button>
+                </div>
+            </form>
+        </section>
+    </div>
+
+    <div class="modal-backdrop" id="expenseModal" hidden>
+        <section class="modal" role="dialog" aria-modal="true" aria-labelledby="expenseModalTitle">
+            <h3 id="expenseModalTitle">Add Expense</h3>
+            <form id="expenseForm">
+                <label for="expenseName">Expense Name</label>
+                <input type="text" id="expenseName" required>
+
+                <label for="expenseAmount">Amount</label>
+                <input type="number" id="expenseAmount" min="0.01" step="0.01" required>
+
+                <label for="expenseCategory">Category</label>
+                <select id="expenseCategory" required>
+                    <option>Food</option>
+                    <option>Transport</option>
+                    <option>Shopping</option>
+                    <option>Bills</option>
+                    <option>Entertainment</option>
+                    <option>Others</option>
+                </select>
+
+                <label for="expenseDate">Date</label>
+                <input type="date" id="expenseDate" required>
+
+                <p id="expenseError" class="error" role="alert"></p>
+                <div class="modal-actions">
+                    <button type="button" data-close="expenseModal">Cancel</button>
+                    <button type="submit">Save Expense</button>
+                </div>
+            </form>
+        </section>
+    </div>
 </body>
 </html>

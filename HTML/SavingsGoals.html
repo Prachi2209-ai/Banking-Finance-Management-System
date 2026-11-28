@@ -1,190 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Savings Goals - FinEdge</title>
-
+    <title>FinEdge - Savings Goals</title>
     <link rel="stylesheet" href="../CSS/savings.css">
-    <link rel="stylesheet" href="../CSS/navigation.css">
+    <link rel="stylesheet" href="../CSS/navigation.css?v=2">
+    <script src="../JAVASCRIPT/userData.js" defer></script>
+    <script src="../JAVASCRIPT/common.js" defer></script>
+    <script src="../JAVASCRIPT/savings.js" defer></script>
 </head>
-
 <body>
-
-    <div class="main-container">
-
+    <div class="app">
         <div id="sidebar-container"></div>
 
-        <!-- ================= RIGHT MAIN CONTENT ================= -->
+        <main class="main">
+            <header class="topbar">
+                <input id="searchInput" type="search" placeholder="Search..." aria-label="Search goals">
+                <span class="account-notification" aria-label="Notifications">🔔</span>
+                <div class="account-identity" aria-label="Signed-in user">
+                    <div class="account-avatar" aria-hidden="true">U</div>
+                    <div class="account-identity-details">
+                        <span class="account-identity-name">User Name</span>
+                        <span class="account-identity-role">Account Holder</span>
+                    </div>
+                </div>
+            </header>
 
-        <div class="content-area">
-
-
-            <!-- Top Search Bar -->
-
-            <div class="top-bar">
-
-                <input
-                    type="text"
-                    placeholder="Search..."
-                    class="search-bar"
-                >
-
-            </div>
-
-
-            <!-- Header Section -->
-
-            <div class="header-section">
-
+            <section class="page-heading">
                 <div>
+                    <h2>Savings Goals</h2>
+                    <p>Save for what matters most</p>
+                </div>
+                <button id="addGoalBtn" class="primary-btn" type="button">+ Add Goal</button>
+            </section>
 
-                    <h2>
-                        Savings Goals
-                    </h2>
+            <p id="storageMessage" class="storage-message" role="status" aria-live="polite" hidden></p>
 
-                    <p>
-                        Save for what matters most
-                    </p>
-
+            <section id="goalFormPanel" class="form-panel" aria-labelledby="formTitle" hidden>
+                <div class="form-heading">
+                    <h3 id="formTitle">Add New Goal</h3>
+                    <button id="closeFormBtn" class="icon-btn" type="button" aria-label="Close form">✕</button>
                 </div>
 
-
-                <button class="add-btn">
-                    + Add Goal
-                </button>
-
-            </div>
-
-
-            <!-- ================= GOALS GRID ================= -->
-
-            <div class="goals-grid">
-
-
-                <!-- Goal 1: New Laptop -->
-
-                <div class="card goal-card">
-
-                    <div class="goal-icon">
-                        💻
+                <form id="goalForm">
+                    <div class="form-grid">
+                        <label for="goalName">Goal name
+                            <input id="goalName" type="text" maxlength="60"
+                                placeholder="e.g. New Laptop" required>
+                        </label>
+                        <label for="targetAmount">Target amount (₹)
+                            <input id="targetAmount" type="number" min="1" step="1"
+                                placeholder="60000" required>
+                        </label>
+                        <label for="savedAmount">Amount saved (₹)
+                            <input id="savedAmount" type="number" min="0" step="1"
+                                value="0" required>
+                        </label>
+                        <label for="targetDate">Target date
+                            <input id="targetDate" type="date" required>
+                        </label>
+                        <label for="goalIcon">Icon
+                            <select id="goalIcon">
+                                <option value="🎯">🎯 General</option>
+                                <option value="💻">💻 Laptop</option>
+                                <option value="✈️">✈️ Travel</option>
+                                <option value="🏠">🏠 Home</option>
+                                <option value="🚗">🚗 Car</option>
+                                <option value="🎓">🎓 Education</option>
+                                <option value="💰">💰 Savings</option>
+                            </select>
+                        </label>
                     </div>
-
-
-                    <div class="goal-details">
-
-                        <div class="goal-header">
-
-                            <h4>
-                                New Laptop
-                            </h4>
-
-                            <span class="goal-target">
-                                ₹60,000
-                            </span>
-
-                        </div>
-
-
-                        <div class="progress-row">
-
-                            <div class="progress-bg">
-
-                                <div class="progress-fill bar-1">
-                                </div>
-
-                            </div>
-
-                            <span class="percent-text">
-                                67%
-                            </span>
-
-                        </div>
-
-
-                        <div class="goal-footer">
-
-                            <p class="saved-amount">
-                                ₹40,000 saved
-                            </p>
-
-                            <p class="target-date">
-                                Target: Dec 2026
-                            </p>
-
-                        </div>
-
+                    <p id="formError" class="form-error" role="alert"></p>
+                    <div class="form-actions">
+                        <button id="cancelBtn" class="secondary-btn" type="button">Cancel</button>
+                        <button class="primary-btn" type="submit">Save Goal</button>
                     </div>
+                </form>
+            </section>
 
-                </div>
-
-
-                <!-- Goal 2: Europe Trip -->
-
-                <div class="card goal-card">
-
-                    <div class="goal-icon">
-                        ✈️
-                    </div>
-
-
-                    <div class="goal-details">
-
-                        <div class="goal-header">
-
-                            <h4>
-                                Europe Trip
-                            </h4>
-
-                            <span class="goal-target">
-                                ₹1,50,000
-                            </span>
-
-                        </div>
-
-
-                        <div class="progress-row">
-
-                            <div class="progress-bg">
-
-                                <div class="progress-fill bar-2">
-                                </div>
-
-                            </div>
-
-                            <span class="percent-text">
-                                33%
-                            </span>
-
-                        </div>
-
-
-                        <div class="goal-footer">
-
-                            <p class="saved-amount">
-                                ₹50,000 saved
-                            </p>
-
-                            <p class="target-date">
-                                Target: Dec 2026
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
+            <section id="goalsContainer" class="goals-grid" aria-live="polite"></section>
+            <p id="emptyMessage" class="empty-message" hidden>
+                No goals found. Click “+ Add Goal” to create one.
+            </p>
+        </main>
     </div>
-<script src="../JAVASCRIPT/savings.js"></script>
-<script src="../JAVASCRIPT/common.js"></script>
 </body>
-
 </html>

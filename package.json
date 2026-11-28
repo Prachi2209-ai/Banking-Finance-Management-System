@@ -4,6 +4,7 @@
   "description": "FinEdge is a responsive front-end concept for a personal banking and finance management dashboard. It provides screens for accounts, bills, budgeting, money transfers, savings, transactions, profiles, settings, login, and signup.",
   "main": "index.js",
   "scripts": {
+    "api": "json-server db.json --port 3000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -28,6 +28,14 @@ form.addEventListener("submit", async (event) => {
     return;
   }
 
+  try {
+    await window.FinEdgeUserData.initialize(user.id);
+  } catch (error) {
+    console.error("Could not initialize account data.", error);
+    alert("Could not load your account data. Please try again.");
+    return;
+  }
+
   localStorage.setItem("finedgeUserId", user.id);
   localStorage.setItem("finedgeUserName", user.fullname);
   localStorage.setItem("finedgeUserEmail", user.email);

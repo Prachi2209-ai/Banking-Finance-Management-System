@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard | FinEdge</title>
   <link rel="stylesheet" href="../CSS/dashboard.css">
-  <link rel="stylesheet" href="../CSS/navigation.css">
+  <link rel="stylesheet" href="../CSS/navigation.css?v=2">
+  <script src="../JAVASCRIPT/userData.js" defer></script>
+  <script src="../JAVASCRIPT/common.js" defer></script>
+  <script src="../JAVASCRIPT/dashboard.js" defer></script>
 </head>
 
 <body>
 
   <div class="dashboard-layout">
-
     <div id="sidebar-container"></div>
-
 
     <!-- MAIN CONTENT -->
     <main class="main-content">
@@ -22,21 +23,20 @@
       <!-- TOP BAR -->
       <header class="topbar">
 
-        <input
-          type="text"
-          class="search-bar"
-          placeholder="Search anything..."
-        >
+        <input id="dashboardSearch" type="search" class="search-bar"
+          placeholder="Search transactions..." aria-label="Search recent transactions">
 
         <div class="topbar-right">
 
           <span class="icon">🔔</span>
 
-          <span class="icon">👤</span>
-
-          <span class="username">
-            Prachi Singh
-          </span>
+          <div class="account-identity" aria-label="Signed-in user">
+            <div class="account-avatar" aria-hidden="true">U</div>
+            <div class="account-identity-details">
+              <span class="account-identity-name username">User Name</span>
+              <span class="account-identity-role">Account Holder</span>
+            </div>
+          </div>
 
         </div>
 
@@ -46,7 +46,7 @@
       <!-- WELCOME -->
       <section class="welcome-section">
 
-        <h2>
+        <h2 id="welcomeHeading">
           Good Morning, User! ☀️
         </h2>
 
@@ -56,6 +56,7 @@
 
       </section>
 
+      <p id="dashboardMessage" class="muted" role="status" aria-live="polite" hidden></p>
 
       <!-- SUMMARY CARDS -->
       <section class="summary-cards">
@@ -66,12 +67,12 @@
             Total Balance
           </p>
 
-          <h3 class="card-value">
-            ₹12,500
+          <h3 class="card-value" id="totalBalance">
+            ₹0.00
           </h3>
 
           <p class="card-change positive">
-            +2.5% from last month
+            Across your accounts
           </p>
 
         </div>
@@ -83,12 +84,12 @@
             Income
           </p>
 
-          <h3 class="card-value">
-            ₹32,000
+          <h3 class="card-value" id="monthlyIncome">
+            ₹0.00
           </h3>
 
           <p class="card-change positive">
-            +8.2% from last month
+            This month
           </p>
 
         </div>
@@ -100,12 +101,12 @@
             Expenses
           </p>
 
-          <h3 class="card-value">
-            ₹18,500
+          <h3 class="card-value" id="monthlyExpenses">
+            ₹0.00
           </h3>
 
           <p class="card-change negative">
-            -4.5% from last month
+            This month
           </p>
 
         </div>
@@ -117,12 +118,12 @@
             Savings
           </p>
 
-          <h3 class="card-value">
-            ₹45,000
+          <h3 class="card-value" id="totalSavings">
+            ₹0.00
           </h3>
 
           <p class="card-change positive">
-            +12.5% from last month
+            Across your goals
           </p>
 
         </div>
@@ -141,12 +142,12 @@
             Monthly Spending
           </h3>
 
-          <p class="muted">
+          <p class="muted" id="spendingMonth">
             September 2026
           </p>
 
-          <p class="spending-total">
-            ₹18,500
+          <p class="spending-total" id="spendingTotal">
+            ₹0.00
           </p>
 
 
@@ -155,34 +156,7 @@
             <div class="donut-chart"></div>
 
 
-            <ul class="legend">
-
-              <li>
-                <span class="dot dot-food"></span>
-                Food — 25%
-              </li>
-
-              <li>
-                <span class="dot dot-transport"></span>
-                Transport — 18%
-              </li>
-
-              <li>
-                <span class="dot dot-shopping"></span>
-                Shopping — 20%
-              </li>
-
-              <li>
-                <span class="dot dot-bills"></span>
-                Bills — 15%
-              </li>
-
-              <li>
-                <span class="dot dot-others"></span>
-                Others — 22%
-              </li>
-
-            </ul>
+            <ul class="legend" id="spendingLegend"></ul>
 
           </div>
 
@@ -205,92 +179,8 @@
           </div>
 
 
-          <ul class="transaction-list">
-
-            <li>
-
-              <div>
-
-                <p class="tx-name">
-                  Salary Credit
-                </p>
-
-                <p class="tx-date">
-                  Today
-                </p>
-
-              </div>
-
-              <p class="tx-amount income">
-                +₹32,000
-              </p>
-
-            </li>
-
-
-            <li>
-
-              <div>
-
-                <p class="tx-name">
-                  Grocery
-                </p>
-
-                <p class="tx-date">
-                  Yesterday
-                </p>
-
-              </div>
-
-              <p class="tx-amount expense">
-                -₹2,499
-              </p>
-
-            </li>
-
-
-            <li>
-
-              <div>
-
-                <p class="tx-name">
-                  Electricity Bill
-                </p>
-
-                <p class="tx-date">
-                  18 Sep 2026
-                </p>
-
-              </div>
-
-              <p class="tx-amount expense">
-                -₹1,200
-              </p>
-
-            </li>
-
-
-            <li>
-
-              <div>
-
-                <p class="tx-name">
-                  Mobile Recharge
-                </p>
-
-                <p class="tx-date">
-                  17 Sep 2026
-                </p>
-
-              </div>
-
-              <p class="tx-amount expense">
-                -₹699
-              </p>
-
-            </li>
-
-          </ul>
+          <ul class="transaction-list" id="transactionList"></ul>
+          <p id="noTransactions" class="muted" hidden>No transactions yet.</p>
 
         </div>
 
@@ -299,8 +189,5 @@
     </main>
 
   </div>
-<script src="../JAVASCRIPT/dashboard.js"></script>
-<script src="../JAVASCRIPT/common.js"></script>
-
 </body>
 </html>

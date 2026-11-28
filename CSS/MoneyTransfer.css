@@ -299,3 +299,122 @@ body {
 .btn-submit:hover {
   background-color: var(--primary-blue-hover);
 }
+
+.balance-display {
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.transfer-message {
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.transfer-message:empty {
+  display: none;
+}
+
+.transfer-message.success {
+  color: #187347;
+}
+
+.transfer-message.error,
+.transfer-storage-message {
+  color: #a52c24;
+}
+
+.transfer-storage-message {
+  max-width: 760px;
+  margin: 0 0 16px;
+  padding: 11px 14px;
+  border: 1px solid #f1c7c3;
+  border-radius: 8px;
+  background: #fff4f2;
+  font-size: 13px;
+}
+
+.recent-transfers-card {
+  max-width: 760px;
+  margin-top: 25px;
+}
+
+.recent-transfers-card h2 {
+  margin-bottom: 16px;
+  font-size: 17px;
+}
+
+.transfer-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.transfer-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.transfer-details {
+  min-width: 0;
+}
+
+.transfer-recipient {
+  display: block;
+  overflow-wrap: anywhere;
+  color: var(--text-dark);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.transfer-meta {
+  display: block;
+  margin-top: 4px;
+  color: var(--text-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.transfer-amount {
+  flex: 0 0 auto;
+  color: #b42318;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.no-transfers {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.btn-submit:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+@media (max-width: 600px) {
+  .top-header {
+    padding: 0 14px;
+  }
+
+  .main-content {
+    padding: 18px 14px;
+  }
+
+  .header-search {
+    width: min(220px, 100%);
+  }
+
+  .user-role {
+    display: none;
+  }
+
+  .form-card {
+    padding: 20px;
+  }
+}
